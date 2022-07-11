@@ -1,7 +1,7 @@
 import React, {FunctionComponent} from 'react';
 import {FlatList, Text} from 'react-native';
 import {useSelector} from 'react-redux';
-import {RootState} from '../../store';
+import {RootState} from '../../dataManagment/store';
 
 const UserList: FunctionComponent = () => {
   const screenState = useSelector((state: RootState) => state.userList);

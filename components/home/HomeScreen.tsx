@@ -1,25 +1,33 @@
-import {Button, SafeAreaView, Text, View} from 'react-native';
-import UserList from '../users/UserList';
-import React from 'react';
+import {SafeAreaView, View} from 'react-native';
+import React, {useEffect} from 'react';
+
+import SwiperCards from './swiper/SwiperCards';
 
 // @ts-ignore
 const HomeScreen = ({navigation}) => {
+  useEffect(() => {
+    // navigation.setOptions({title: 'Home Effect'})
+  }, [navigation]);
+
   return (
     <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
       <SafeAreaView>
-        <Text>Home Screen</Text>
-        <Button
-          title="Go to Details"
-          onPress={() => navigation.navigate('Details')}
-        />
+        {/*@ts-ignore*/}
+        <SwiperCards navigation={navigation} />
 
-        {/* Inside of render() of React class */}
-        <Button
-          title="Update the title"
-          onPress={() => navigation.setOptions({title: 'Updated!'})}
-        />
+        {/*<Text>Home Screen</Text>*/}
+        {/*<Button*/}
+        {/*  title="Go to Details"*/}
+        {/*  onPress={() => navigation.navigate('Details')}*/}
+        {/*/>*/}
 
-        <UserList />
+        {/*/!* Inside of render() of React class *!/*/}
+        {/*<Button*/}
+        {/*  title="Update the title"*/}
+        {/*  // onPress={() => navigation.setOptions({title: 'Updated!'})}*/}
+        {/*/>*/}
+
+        {/*<UserList />*/}
       </SafeAreaView>
     </View>
   );

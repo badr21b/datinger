@@ -3,7 +3,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import HomeScreen from '../home/HomeScreen';
 import DetailsScreen from '../testScreens/DetailsScreen';
 import ContactScreen from '../testScreens/ContactScreen';
-import {Alert, Button, Image} from 'react-native';
+import { Alert, Button, Image } from "react-native";
 
 const Stack = createNativeStackNavigator();
 
@@ -84,4 +84,12 @@ const ContactStackNavigator = () => {
   );
 };
 
-export {MainStackNavigator, ContactStackNavigator};
+const DetailsStackNavigator = () => {
+  return (
+    <Stack.Navigator screenOptions={screenOptionStyle}>
+      <Stack.Screen name="Details" component={DetailsScreen} />
+    </Stack.Navigator>
+  );
+};
+
+export {MainStackNavigator, ContactStackNavigator, DetailsStackNavigator};
