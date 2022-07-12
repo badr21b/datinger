@@ -16,7 +16,6 @@ import {StatusBar} from 'react-native';
 import store from './dataManagment/store';
 import {NavigationContainer} from '@react-navigation/native';
 import BottomTabNavigator from './components/Navigator/TabNavigator';
-import { MainStackNavigator } from "./components/Navigator/StackNavigator";
 
 const App = () => {
   return (
@@ -29,10 +28,8 @@ const App = () => {
         hidden={false}
       />
       <ReduxProvider store={store}>
-        {/*@ts-ignore*/}
         <NavigationContainer>
           <BottomTabNavigator />
-          {MainStackNavigator}
         </NavigationContainer>
       </ReduxProvider>
     </>

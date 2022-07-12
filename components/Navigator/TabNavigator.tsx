@@ -28,7 +28,7 @@ const BottomTabNavigator = () => {
         options={{
           title: 'Datinger',
           headerStyle: {
-            backgroundColor: '#f4511e',
+            backgroundColor: '#e91e63',
           },
           headerTintColor: '#fff',
           headerTitleStyle: {
