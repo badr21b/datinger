@@ -1,4 +1,5 @@
-import { StyleSheet } from "react-native";
+import {StyleSheet} from 'react-native';
+import {green} from 'react-native-reanimated/lib/types/lib';
 
 const styles = StyleSheet.create({
   container: {
@@ -11,6 +12,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+
+  cardContainer: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flex: 1,
+    width: '100%',
+  },
   card: {
     width: 320,
     height: 470,
@@ -22,6 +31,33 @@ const styles = StyleSheet.create({
       height: 1,
     },
     shadowOpacity: 0.5,
+  },
+
+  rotateRight: {
+    transform: [{rotate: '15deg'}],
+  },
+  rotateLeft: {
+    transform: [{rotate: '-15deg'}],
+  },
+  swipeDecisionTextContainer: {
+    position: 'absolute',
+    top: 150,
+    width: 200,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flex: 5,
+    zIndex: 1000,
+    swipeDecisionText: {
+      fontSize: 18,
+      fontWeight: 'bold',
+      paddingHorizontal: 32,
+      paddingVertical: 12,
+      color: '#01df8a',
+      borderWidth: 4,
+      borderColor: '#01df8a',
+      borderRadius: 9,
+    },
   },
 
   picture: {
@@ -51,12 +87,52 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
   },
 
-  name: {
-    lineHeight: 32,
-    textAlign: 'center',
+  profileInfoContainer: {
+    lineHeight: 28,
     fontSize: 16,
     color: '#ffffff',
-    backgroundColor: 'green',
+    backgroundColor: 'transparent',
+    position: 'absolute',
+    bottom: 9,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    zIndex: 10,
+    width: '100%',
+    textAlign: 'left',
+    marginLeft: 16,
+  },
+  nameAgeText: {
+    fontWeight: 'bold',
+    lineHeight: 28,
+    fontSize: 21,
+    color: '#ffffff',
+    backgroundColor: 'transparent',
+    position: 'relative',
+    bottom: 9,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    zIndex: 10,
+    width: '100%',
+    textAlign: 'left',
+    marginLeft: 16,
+  },
+  onlineStatus: {
+    // fontWeight: 'bold',
+    lineHeight: 28,
+    fontSize: 12,
+    color: '#ffffff',
+    backgroundColor: 'transparent',
+    position: 'relative',
+    bottom: 9,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    zIndex: 10,
+    width: '100%',
+    textAlign: 'left',
+    marginLeft: 16,
   },
 
   footer: {

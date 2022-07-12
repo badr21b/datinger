@@ -11,6 +11,7 @@ type userProfile = {
 };
 type userInteraction = {
   isLiked: boolean;
+  swipeDirection: string,
   isBlocked: boolean;
 };
 
@@ -31,6 +32,7 @@ const initialState: userListState = {
       },
       interaction: {
         isLiked: false,
+        swipeDirection: '',
         isBlocked: false,
       },
     },
@@ -43,6 +45,7 @@ const initialState: userListState = {
       },
       interaction: {
         isLiked: false,
+        swipeDirection: '',
         isBlocked: false,
       },
     },
@@ -55,6 +58,7 @@ const initialState: userListState = {
       },
       interaction: {
         isLiked: false,
+        swipeDirection: '',
         isBlocked: false,
       },
     },
@@ -68,9 +72,16 @@ const userListSlice = createSlice({
   initialState: initialState,
   reducers: {
     swipeUser: (state, action) => {
-      state.users = action.payload;
+      state.users.map(user => {
+        if (user.profile.name === action.payload.userName) {
+          user.interaction.swipeDirection = action.payload.decision;
+        }
+      });
+
+      console.log(state.users);
     },
   },
 });
 
+export const {swipeUser} = userListSlice.actions;
 export default userListSlice.reducer;
