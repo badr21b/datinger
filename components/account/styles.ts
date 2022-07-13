@@ -79,8 +79,19 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#3D3D3D',
   },
-  headerLinkContainer: {
-
+  textIconContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'column',
+  },
+  headerIcon: {
+    borderRadius: 100,
+    borderWidth: 1,
+    borderColor: '#ffffff',
+    backgroundColor: '#ffffff',
+    padding: 9,
+    marginTop: 16,
   },
 });
 
