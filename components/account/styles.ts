@@ -79,6 +79,9 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#3D3D3D',
   },
+  headerLinkContainer: {
+
+  },
 });
 
 export default styles;

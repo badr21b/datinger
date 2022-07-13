@@ -4,30 +4,30 @@ import styles from './styles';
 import {AnimatedCircularProgress} from 'react-native-circular-progress';
 // @ts-ignore
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import AccountHeaderLink from './AccountHeaderLink';
 
 // @ts-ignore
 const AccountScreen = ({navigation}) => {
   return (
     <View style={styles.profileContainer}>
       <View style={styles.buttonsContainer}>
-        <TouchableOpacity
-          onPress={() => {
-            navigation.navigate('Home');
-          }}>
-          <Text style={styles.buttonItem}>Settings</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => {
-            navigation.navigate('Home');
-          }}>
-          <Text style={styles.buttonItem}>Edit Profile</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => {
-            navigation.navigate('Home');
-          }}>
-          <Text style={styles.buttonItem}>Add photo</Text>
-        </TouchableOpacity>
+        <AccountHeaderLink
+          navigation={navigation}
+          link={'Home'}
+          text={'Settings'}
+        />
+
+        <AccountHeaderLink
+          navigation={navigation}
+          link={'Home'}
+          text={'Edit Profile'}
+        />
+
+        <AccountHeaderLink
+          navigation={navigation}
+          link={'Home'}
+          text={'Add photo'}
+        />
       </View>
 
       <View style={styles.profilePictureContainer}>
@@ -70,7 +70,6 @@ const AccountScreen = ({navigation}) => {
           Take it to the next level on Dating
         </Text>
       </View>
-
     </View>
   );
 };
