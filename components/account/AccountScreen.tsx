@@ -13,19 +13,19 @@ const AccountScreen = ({navigation}) => {
       <View style={styles.buttonsContainer}>
         <AccountHeaderLink
           navigation={navigation}
-          link={'Home'}
+          link={'Settings'}
           text={'Settings'}
         />
 
         <AccountHeaderLink
           navigation={navigation}
-          link={'Home'}
+          link={'Edit'}
           text={'Edit Profile'}
         />
 
         <AccountHeaderLink
           navigation={navigation}
-          link={'Home'}
+          link={'Photo'}
           text={'Add photo'}
         />
       </View>
