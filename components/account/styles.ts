@@ -52,6 +52,33 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     color: '#ffffff',
   },
+
+  carouselContainer: {
+    flex: 0.4,
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'column',
+    backgroundColor: 'transparent',
+  },
+  carouselTitleContainer: {
+    marginVertical: 12,
+    // flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'row',
+  },
+  carouselTitle: {
+    fontWeight: '500',
+    fontSize: 18,
+  },
+  carouselTitleIcon: {
+    marginHorizontal: 6,
+  },
+  carouselText: {
+    // fontWeight: 'bold',
+    fontSize: 14,
+    color: '#3D3D3D',
+  },
 });
 
 export default styles;

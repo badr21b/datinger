@@ -4,7 +4,7 @@ const styles = StyleSheet.create({
   listItemContainer: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-evenly',
     flexDirection: 'row',
     width: '100%',
   },
@@ -15,6 +15,7 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
     justifyContent: 'center',
     flexDirection: 'column',
+    marginHorizontal: 12,
   },
   picture: {
     width: 80,
@@ -36,6 +37,7 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
     justifyContent: 'center',
     flexDirection: 'column',
+    marginHorizontal: 12
   },
 });
 

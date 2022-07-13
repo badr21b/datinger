@@ -29,7 +29,11 @@ buildscript {
         // in the individual module build.gradle files
     }
 }
-
+android {
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
 allprojects {
     repositories {
         maven {

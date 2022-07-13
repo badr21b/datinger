@@ -2,6 +2,8 @@ import {Image, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import styles from './styles';
 import {AnimatedCircularProgress} from 'react-native-circular-progress';
+// @ts-ignore
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 // @ts-ignore
 const AccountScreen = ({navigation}) => {
@@ -26,7 +28,6 @@ const AccountScreen = ({navigation}) => {
           }}>
           <Text style={styles.buttonItem}>Add photo</Text>
         </TouchableOpacity>
-
       </View>
 
       <View style={styles.profilePictureContainer}>
@@ -53,6 +54,21 @@ const AccountScreen = ({navigation}) => {
             </Text>
           )}
         </AnimatedCircularProgress>
+      </View>
+
+      <View style={styles.carouselContainer}>
+        <View style={styles.carouselTitleContainer}>
+          <MaterialCommunityIcons
+            name="gold"
+            color={'#e91e63'}
+            size={24}
+            style={styles.carouselTitleIcon}
+          />
+          <Text style={styles.carouselTitle}>Get Datinger Premium</Text>
+        </View>
+        <Text style={styles.carouselText}>
+          Take it to the next level on Dating
+        </Text>
       </View>
 
       {/*<Text>Account Screen</Text>*/}
