@@ -1,0 +1,208 @@
+{
+  "messages": [
+    {
+      "interactions": {
+        "isMatch": false
+      },
+      "userDetails": {
+        "userId": 35,
+        "name": "Bokoko",
+        "age": "35",
+        "district": "Alger",
+        "city": "Algérie",
+        "matchingPercent": "15%",
+        "aboutSummary": "Salam 3likom",
+        "image": "https://www.westend61.de/images/0000719151pw/portrait-of-smiling-young-man-wearing-glasses-DIGF000310.jpg"
+      }
+    },
+    {
+      "interactions": {
+        "isMatch": false
+      },
+      "userDetails": {
+        "userId": 134,
+        "name": "Derya",
+        "age": "27",
+        "district": "Bakirkoy",
+        "city": "Istanbul",
+        "matchingPercent": "89%",
+        "aboutSummary": "Hello world!",
+        "image": "https://www.whatsappprofiledpimages.com/wp-content/uploads/2021/08/Profile-Photo-Wallpaper.jpg"
+      }
+    },
+    {
+      "interactions": {
+        "isMatch": true
+      },
+      "userDetails": {
+        "userId": 25,
+        "name": "Zoubir",
+        "age": "32",
+        "district": "Sisli",
+        "city": "Istanbul",
+        "matchingPercent": "38%",
+        "aboutSummary": "Salut tout le monde",
+        "image": "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+      }
+    },
+    {
+      "interactions": {
+        "isMatch": true
+      },
+      "userDetails": {
+        "userId": 22,
+        "name": "Habiba",
+        "age": "22",
+        "district": "Kadikoy",
+        "city": "Izmir",
+        "matchingPercent": "98%",
+        "aboutSummary": "Merhaba",
+        "image": "https://cdn.okccdn.com/php/load_okc_image.php/images/400x400/400x400/0x0/640x640/2/102694031280366163.webp?v=2"
+      }
+    }
+  ],
+  "likes": [
+    {
+      "interactions": {
+        "isMatch": false
+      },
+      "userDetails": {
+        "userId": 134,
+        "name": "Robin",
+        "age": "27",
+        "district": "Bakirkoy",
+        "city": "Istanbul",
+        "matchingPercent": "89%",
+        "aboutSummary": "Hello world!",
+        "image": "https://www.whatsappprofiledpimages.com/wp-content/uploads/2021/08/Profile-Photo-Wallpaper.jpg"
+      }
+    },
+    {
+      "interactions": {
+        "isMatch": true
+      },
+      "userDetails": {
+        "userId": 25,
+        "name": "Wilyams",
+        "age": "32",
+        "district": "Sisli",
+        "city": "Istanbul",
+        "matchingPercent": "38%",
+        "aboutSummary": "Salut tout le monde",
+        "image": "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+      }
+    },
+    {
+      "interactions": {
+        "isMatch": true
+      },
+      "userDetails": {
+        "userId": 22,
+        "name": "Sara",
+        "age": "22",
+        "district": "Kadikoy",
+        "city": "Izmir",
+        "matchingPercent": "98%",
+        "aboutSummary": "Merhaba",
+        "image": "https://cdn.okccdn.com/php/load_okc_image.php/images/400x400/400x400/0x0/640x640/2/102694031280366163.webp?v=2"
+      }
+    },
+    {
+      "interactions": {
+        "isMatch": false
+      },
+      "userDetails": {
+        "userId": 35,
+        "name": "David",
+        "age": "35",
+        "district": "Alger",
+        "city": "Algérie",
+        "matchingPercent": "15%",
+        "aboutSummary": "Salam 3likom",
+        "image": "https://www.westend61.de/images/0000719151pw/portrait-of-smiling-young-man-wearing-glasses-DIGF000310.jpg"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "interactions": {
+        "isMatch": false,
+        "matchingPercent": "89%"
+      },
+      "userDetails": {
+        "userId": 10003,
+        "name": "Souhila",
+        "age": "32",
+        "district": "Algérie",
+        "city": "Alger",
+        "matchingPercent": "89%",
+        "aboutSummary": "Saluuuuut tout le monde!",
+        "image": "./profiles/static_0003_002.jpeg",
+        "imageList": [
+          {
+            "pictureUrl": "/profiles/static_0003_001.jpeg",
+            "isProfilePicture": false
+          },
+          {
+            "pictureUrl": "/profiles/static_0003_002.jpeg",
+            "isProfilePicture": true
+          },
+          {
+            "pictureUrl": "/profiles/static_0003_003.jpeg",
+            "isProfilePicture": false
+          }
+        ]
+      },
+      "id": 10003
+    },
+    {
+      "interactions": {
+        "isMatch": false,
+        "matchingPercent": "19%"
+      },
+      "userDetails": {
+        "userId": 10001,
+        "name": "Manel",
+        "age": "22",
+        "district": "Maroc",
+        "city": "Marrakech",
+        "aboutSummary": "Hello world!",
+        "image": "./profiles/static_0002_001.jpeg",
+        "imageList": [
+          {
+            "pictureUrl": "/profiles/static_0002_001.jpeg",
+            "isProfilePicture": false
+          },
+          {
+            "pictureUrl": "/profiles/static_0002_002.jpeg",
+            "isProfilePicture": true
+          }
+        ]
+      },
+      "id": 10001
+    },
+    {
+      "interactions": {
+        "isMatch": false,
+        "matchingPercent": "89%"
+      },
+      "userDetails": {
+        "userId": 10002,
+        "name": "Douzi",
+        "age": "39",
+        "district": "Maroc",
+        "city": "Marrakech",
+        "matchingPercent": "34%",
+        "aboutSummary": "Selem alikom mes fans! ",
+        "image": "./profiles/static_0004_002.jpeg",
+        "imageList": [
+          {
+            "pictureUrl": "/profiles/static_0004_002.jpeg",
+            "isProfilePicture": true
+          }
+        ]
+      },
+      "id": 10002
+    }
+  ]
+}

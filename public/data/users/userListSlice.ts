@@ -1,8 +1,11 @@
 import {createSlice} from '@reduxjs/toolkit';
+import axios from 'axios';
 
+// TS
 export type User = {
   profile: userProfile;
   interaction: userInteraction;
+  connectionStatus: userConnectionStatus;
 };
 type userProfile = {
   name: string;
@@ -11,17 +14,24 @@ type userProfile = {
 };
 type userInteraction = {
   isLiked: boolean;
-  swipeDirection: string,
+  swipeDirection: string;
   isBlocked: boolean;
 };
-
+type userConnectionStatus = {
+  onlineStatus: string;
+  lastOnlineTimeOut: string;
+};
 export type userListState = {
+  data: any;
   users: User[];
   loading: boolean;
   error: boolean;
 };
 
+// State
 const initialState: userListState = {
+  data: [],
+
   users: [
     {
       profile: {
@@ -34,6 +44,10 @@ const initialState: userListState = {
         isLiked: false,
         swipeDirection: '',
         isBlocked: false,
+      },
+      connectionStatus: {
+        onlineStatus: 'disconnected',
+        lastOnlineTimeOut: 'Yesterday',
       },
     },
     {
@@ -48,6 +62,10 @@ const initialState: userListState = {
         swipeDirection: '',
         isBlocked: false,
       },
+      connectionStatus: {
+        onlineStatus: 'online',
+        lastOnlineTimeOut: '',
+      },
     },
     {
       profile: {
@@ -61,12 +79,17 @@ const initialState: userListState = {
         swipeDirection: '',
         isBlocked: false,
       },
+      connectionStatus: {
+        onlineStatus: 'disconnected',
+        lastOnlineTimeOut: 'Yesterday',
+      },
     },
   ],
   loading: false,
   error: false,
 };
 
+// Redux toolkit State, Reducers
 const userListSlice = createSlice({
   name: 'userList',
   initialState: initialState,
@@ -77,11 +100,35 @@ const userListSlice = createSlice({
           user.interaction.swipeDirection = action.payload.decision;
         }
       });
+      // console.log(state.users);
+    },
 
-      console.log(state.users);
+    getTodo: (state, action) => {
+      state.data = [action.payload];
+      // console.log(action.payload);
     },
   },
 });
 
-export const {swipeUser} = userListSlice.actions;
+
+
+// const API_URL = 'https://jsonplaceholder.typicode.com/users';
+const API_URL = '../db/users.json';
+console.log(API_URL);
+export const getTodoAsync =
+  (data: any) => async (dispatch: (arg0: any) => void) => {
+    try {
+      // const response = await axios.get(`${API_URL}/`);
+      const response = await axios.get('../db/userData.json');
+      // const response = await axios.get(`${API_URL}/${data}`);
+      dispatch(getTodo(response.data));
+      // console.log(response.data);
+    } catch (err) {
+      // @ts-ignore
+      throw new Error(err);
+    }
+  };
+
+// Exports
+export const {swipeUser, getTodo} = userListSlice.actions;
 export default userListSlice.reducer;

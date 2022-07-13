@@ -13,7 +13,7 @@ import {Provider as ReduxProvider} from 'react-redux';
 import {StatusBar} from 'react-native';
 
 // Store
-import store from './dataManagment/store';
+import store from './data/store';
 import {NavigationContainer} from '@react-navigation/native';
 import BottomTabNavigator from './components/Navigator/TabNavigator';
 

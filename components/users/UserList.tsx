@@ -1,7 +1,8 @@
 import React, {FunctionComponent} from 'react';
 import {FlatList, Text} from 'react-native';
 import {useSelector} from 'react-redux';
-import {RootState} from '../../dataManagment/store';
+import {RootState} from '../../data/store';
+import UserListItem from './UserListItem';
 
 const UserList: FunctionComponent = () => {
   const screenState = useSelector((state: RootState) => state.userList);
@@ -21,8 +22,7 @@ const UserList: FunctionComponent = () => {
           renderItem={({item}) => {
             return (
               <>
-                <Text>Name: {item.name}</Text>
-                <Text>Age: {item.age}</Text>
+                <UserListItem user={item} />
               </>
             );
           }}

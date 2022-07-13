@@ -1,20 +1,19 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-
-import {
-  MainStackNavigator,
-  ContactStackNavigator,
-  DetailsStackNavigator,
-} from './StackNavigator';
 import HomeScreen from '../home/HomeScreen';
-import DetailsScreen from '../testScreens/DetailsScreen';
-import ContactScreen from '../testScreens/ContactScreen';
 // @ts-ignore
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import LikesListScreen from '../likes/LikesListScreen';
+import {Image, TouchableOpacity} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
+import styles from './styles';
+import AccountScreen from '../account/AccountScreen';
 
 const Tab = createBottomTabNavigator();
 
 const BottomTabNavigator = () => {
+  const navigation = useNavigation();
+
   return (
     <Tab.Navigator
       backBehavior={'initialRoute'}
@@ -40,10 +39,10 @@ const BottomTabNavigator = () => {
         }}
       />
       <Tab.Screen
-        name="Details"
-        component={DetailsScreen}
+        name="Likes"
+        component={LikesListScreen}
         options={{
-          tabBarLabel: 'Details',
+          tabBarLabel: 'Likes',
           tabBarIcon: ({color, size}) => (
             <MaterialCommunityIcons
               name="heart-outline"
@@ -51,11 +50,25 @@ const BottomTabNavigator = () => {
               size={size}
             />
           ),
+          headerRight: () => (
+            <TouchableOpacity
+              onPress={() => {
+                // @ts-ignore
+                navigation.navigate('Account');
+              }}>
+              <Image
+                source={{
+                  uri: 'https://www.opticalexpress.co.uk/media/1064/man-with-glasses-smiling-looking-into-distance.jpg',
+                }}
+                style={[styles.tabPicture]}
+              />
+            </TouchableOpacity>
+          ),
         }}
       />
       <Tab.Screen
-        name="Contact"
-        component={ContactScreen}
+        name="Account"
+        component={AccountScreen}
         options={{
           tabBarIcon: ({color, size}) => (
             <MaterialCommunityIcons name="account" color={color} size={size} />

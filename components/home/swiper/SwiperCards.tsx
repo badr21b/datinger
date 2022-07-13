@@ -3,10 +3,10 @@ import {Image, Text, View, Alert} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import CardStack, {Card} from 'react-native-card-stack-swiper';
 import styles from './styles';
-import {RootState} from '../../../dataManagment/store';
+import {RootState} from '../../../data/store';
 import {useDispatch, useSelector} from 'react-redux';
-import {swipeUser} from '../../../dataManagment/users/userListSlice';
-import {User as userType} from '../../../dataManagment/users/userListSlice';
+import {swipeUser} from '../../../data/users/userListSlice';
+import {User as userType} from '../../../data/users/userListSlice';
 
 const SwiperCards = ({}) => {
   const dispatch = useDispatch();
