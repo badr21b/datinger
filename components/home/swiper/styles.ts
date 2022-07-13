@@ -181,6 +181,27 @@ const styles = StyleSheet.create({
     borderWidth: 6,
     borderColor: '#fd267d',
   },
+  greenColor: {
+    borderColor: '#01df8a',
+  },
+  redColor: {
+    borderColor: '#fd267d',
+  },
+  actionButtonsContainer: {
+    flexDirection: 'row',
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  actionIcon: {
+    borderRadius: 100,
+    borderWidth: 2,
+    width: 50,
+    height: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginHorizontal: 18,
+  },
 });
 
 export default styles;

@@ -71,13 +71,6 @@ const AccountScreen = ({navigation}) => {
         </Text>
       </View>
 
-      {/*<Text>Account Screen</Text>*/}
-      {/*<Button title="Go to Home" onPress={() => navigation.navigate('Home')} />*/}
-      {/*<Button*/}
-      {/*  title="Go to Details"*/}
-      {/*  onPress={() => navigation.navigate('Likes')}*/}
-      {/*/>*/}
-      {/*<Button title="Go back" onPress={() => navigation.goBack()} />*/}
     </View>
   );
 };

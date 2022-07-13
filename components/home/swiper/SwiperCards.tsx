@@ -1,5 +1,5 @@
 // @ts-ignore
-import {Image, Text, View, Alert} from 'react-native';
+import {Button, Image, Text, TouchableOpacity, View} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import CardStack, {Card} from 'react-native-card-stack-swiper';
 import styles from './styles';
@@ -7,6 +7,43 @@ import {RootState} from '../../../data/store';
 import {useDispatch, useSelector} from 'react-redux';
 import {swipeUser} from '../../../data/users/userListSlice';
 import {User as userType} from '../../../data/users/userListSlice';
+// @ts-ignore
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+
+const NoCards = ({}) => {
+  return (
+    <View>
+      <Text>No More profiles to swipe</Text>
+      <Button
+        title={'Refresh list'}
+        onPress={() => {
+          console.log('refresh list');
+        }}
+      />
+    </View>
+  );
+};
+// @ts-ignore
+const SwipeArrowButton = ({direction, color, setCurrentCardSwipeDecision}) => {
+  return (
+    <TouchableOpacity
+      style={[
+        styles.actionIcon,
+        direction === 'right' ? styles.greenColor : styles.redColor,
+      ]}
+      onPress={() => {
+        // @ts-ignore
+        this.swiper.swipeRight();
+        setCurrentCardSwipeDecision(direction);
+      }}>
+      <MaterialCommunityIcons
+        name={'arrow-u-' + direction + '-top'}
+        color={color}
+        size={32}
+      />
+    </TouchableOpacity>
+  );
+};
 
 const SwiperCards = ({}) => {
   const dispatch = useDispatch();
@@ -14,20 +51,19 @@ const SwiperCards = ({}) => {
   const [currentCardSwipeDecision, setCurrentCardSwipeDecision] = useState(
     '' as string,
   );
-  const [currentCardSwipedProfile, setCurrentCardSwipedProfile] = useState({});
+  const [currentCardIndex, setCurrentCardIndex] = useState(0);
+  //const [blockSwiping, setBlockSwiping] = useState(false);
 
   const handleSwipeDecision = (direction: string, user: userType) => {
-    // console.log(direction);
-    // console.log(user);
-    // setCurrentCardSwipeDecision(direction);
-    setCurrentCardSwipedProfile(user);
-
     dispatch(
       swipeUser({
         userName: user.profile.name,
         decision: direction,
       }),
     );
+  };
+  const handleRefreshList = () => {
+    setCurrentCardIndex(0);
   };
 
   useEffect(() => {
@@ -42,6 +78,10 @@ const SwiperCards = ({}) => {
     } else if (event < 0) {
       setCurrentCardSwipeDecision('left');
     }
+  };
+  const handleNoMoreCards = () => {
+    //setBlockSwiping(true);
+    return <NoCards />;
   };
 
   return (
@@ -75,7 +115,16 @@ const SwiperCards = ({}) => {
       </View>
 
       {/*@ts-ignore*/}
-      <CardStack style={styles.content} onSwipe={handleSwipe}>
+      <CardStack
+        ref={swiper => {
+          // @ts-ignore
+          this.swiper = swiper;
+        }}
+        style={styles.content}
+        onSwipe={handleSwipe}
+        renderNoMoreCards={handleNoMoreCards}
+        onSwipedAll={handleRefreshList}
+        initialIndex={currentCardIndex}>
         {cardUsersState.users.map((item, key) => {
           return (
             // @ts-ignore
@@ -100,21 +149,29 @@ const SwiperCards = ({}) => {
                 style={[styles.picture]}
               />
             </Card>
-
-            // </View>
           );
         })}
-
-        {/*<Card style={[styles.card, styles.card1]}>*/}
-        {/*  <Text style={styles.label}>A</Text>*/}
-        {/*</Card>*/}
-        {/*<Card style={[styles.card, styles.card2]}>*/}
-        {/*  <Text style={styles.label}>B</Text>*/}
-        {/*</Card>*/}
-        {/*<Card style={[styles.card, styles.card1]}>*/}
-        {/*  <Text style={styles.label}>C</Text>*/}
-        {/*</Card>*/}
       </CardStack>
+
+      <View style={styles.actionButtonsContainer}>
+        <SwipeArrowButton
+          color={'#e91e63'}
+          direction={'left'}
+          setCurrentCardSwipeDecision={setCurrentCardSwipeDecision}
+        />
+        {/*<TouchableOpacity*/}
+        {/*  onPress={() => {*/}
+        {/*    setCurrentCardIndex(0);*/}
+        {/*  }}>*/}
+        {/*  <Text>Return</Text>*/}
+        {/*</TouchableOpacity>*/}
+
+        <SwipeArrowButton
+          color={'#01df8a'}
+          direction={'right'}
+          setCurrentCardSwipeDecision={setCurrentCardSwipeDecision}
+        />
+      </View>
     </View>
   );
 };
