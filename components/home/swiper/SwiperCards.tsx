@@ -1,5 +1,5 @@
 // @ts-ignore
-import {Button, Image, Text, TouchableOpacity, View} from 'react-native';
+import {Image, Text, View} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import CardStack, {Card} from 'react-native-card-stack-swiper';
 import styles from './styles';
@@ -7,43 +7,8 @@ import {RootState} from '../../../data/store';
 import {useDispatch, useSelector} from 'react-redux';
 import {swipeUser} from '../../../data/users/userListSlice';
 import {User as userType} from '../../../data/users/userListSlice';
-// @ts-ignore
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-
-const NoCards = ({}) => {
-  return (
-    <View>
-      <Text>No More profiles to swipe</Text>
-      <Button
-        title={'Refresh list'}
-        onPress={() => {
-          console.log('refresh list');
-        }}
-      />
-    </View>
-  );
-};
-// @ts-ignore
-const SwipeArrowButton = ({direction, color, setCurrentCardSwipeDecision}) => {
-  return (
-    <TouchableOpacity
-      style={[
-        styles.actionIcon,
-        direction === 'right' ? styles.greenColor : styles.redColor,
-      ]}
-      onPress={() => {
-        // @ts-ignore
-        this.swiper.swipeRight();
-        setCurrentCardSwipeDecision(direction);
-      }}>
-      <MaterialCommunityIcons
-        name={'arrow-u-' + direction + '-top'}
-        color={color}
-        size={32}
-      />
-    </TouchableOpacity>
-  );
-};
+import NoCards from './NoCards';
+import SwipeArrowButton from './SwipeArrowButton';
 
 const SwiperCards = ({}) => {
   const dispatch = useDispatch();

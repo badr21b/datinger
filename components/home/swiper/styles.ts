@@ -188,9 +188,10 @@ const styles = StyleSheet.create({
     borderColor: '#fd267d',
   },
   actionButtonsContainer: {
+    width: '100%',
     flexDirection: 'row',
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'space-evenly',
     alignItems: 'center',
   },
   actionIcon: {
@@ -200,7 +201,7 @@ const styles = StyleSheet.create({
     height: 50,
     justifyContent: 'center',
     alignItems: 'center',
-    marginHorizontal: 18,
+    marginHorizontal: 9,
   },
 });
 
