@@ -39,6 +39,20 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     marginHorizontal: 12,
   },
+
+  primaryText: {
+    fontSize: 14,
+    fontWeight: 'bold',
+    color: '#000000',
+    textTransform: 'capitalize',
+  },
+  secondaryText: {
+    fontSize: 12,
+    fontWeight: 'normal',
+    color: '#6f6f6f',
+    marginVertical: 1,
+  },
+
 });
 
 export default styles;

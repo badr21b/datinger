@@ -36,7 +36,7 @@ const LikesListScreen = ({navigation}) => {
             source={require('../../public/assets/animations/loading-animation-logo-transparent.gif')}
           />
         </View>
-      ) : apiDataList.length > 0 ? (
+      ) : apiDataList?.length > 0 ? (
         <FlatList
           data={apiDataList}
           keyExtractor={(_, index) => {

@@ -18,10 +18,10 @@ const UserListItem = ({user}) => {
       <View style={styles.textContainer}>
         {/*<Text>{user.id}</Text>*/}
         {/*<Text>{user.name}</Text>*/}
-        <Text>{user.username}</Text>
-        <Text>{user.email}</Text>
-        <Text>{user.phone}</Text>
-        <Text>{user.website}</Text>
+        <Text style={styles.primaryText}>{user.username}</Text>
+        <Text style={styles.secondaryText} >{user.email}</Text>
+        <Text style={styles.secondaryText} >{user.phone}</Text>
+        <Text style={styles.secondaryText} >{user.website}</Text>
       </View>
     </View>
   );
