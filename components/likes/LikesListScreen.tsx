@@ -10,17 +10,16 @@ import styles from './styles';
 // @ts-ignore
 const LikesListScreen = ({navigation}) => {
   const dispatch = useDispatch();
-  const apiDataList = useSelector((state: RootState) => state.userList.data);
-  let testList = Array(25).fill(apiDataList[0]);
+  const apiDataList = useSelector((state: RootState) => state.userList.data[0]);
   const [showLoader, setShowLoader] = useState(true);
 
   useEffect(() => {
     setTimeout(() => {
       setShowLoader(false);
       // @ts-ignore
-      return dispatch(getTodoAsync('1'));
+      return dispatch(getTodoAsync());
     }, 1500);
-  });
+  }, []);
 
   return (
     <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
@@ -39,7 +38,7 @@ const LikesListScreen = ({navigation}) => {
         </View>
       ) : apiDataList.length > 0 ? (
         <FlatList
-          data={testList}
+          data={apiDataList}
           keyExtractor={(_, index) => {
             return index.toString();
           }}

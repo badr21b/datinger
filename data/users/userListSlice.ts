@@ -116,10 +116,10 @@ const API_URL = 'https://jsonplaceholder.typicode.com/users';
 export const getTodoAsync =
   (data: any) => async (dispatch: (arg0: any) => void) => {
     try {
-      // const response = await axios.get(`${API_URL}/`);
-      const response = await axios.get(`${API_URL}/${data}`);
+      const response = await axios.get(`${API_URL}/`);
+      console.log(response.data);
+      // const response = await axios.get(`${API_URL}/${data}`);
       dispatch(getTodo(response.data));
-      // console.log(response.data);
     } catch (err) {
       // @ts-ignore
       throw new Error(err);

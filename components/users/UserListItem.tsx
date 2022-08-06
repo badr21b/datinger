@@ -20,6 +20,8 @@ const UserListItem = ({user}) => {
         {/*<Text>{user.name}</Text>*/}
         <Text>{user.username}</Text>
         <Text>{user.email}</Text>
+        <Text>{user.phone}</Text>
+        <Text>{user.website}</Text>
       </View>
     </View>
   );
