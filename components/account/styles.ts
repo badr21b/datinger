@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   buttonItem: {
-    paddingVertical: 18,
+    paddingVertical: 9,
     color: '#ffffff',
     fontWeight: 'bold',
   },
