@@ -64,7 +64,8 @@ const AccountScreen = ({navigation}) => {
             size={24}
             style={styles.carouselTitleIcon}
           />
-          <Text style={styles.carouselTitle}>Get Datinger Premium</Text>
+          <Text style={styles.carouselTitle}>Get Datinger </Text>
+          <Text style={[styles.carouselTitle, {color: '#FFA62B', fontWeight: 'bold'}]} >Premium</Text>
         </View>
         <Text style={styles.carouselText}>
           Take it to the next level on Dating

@@ -69,14 +69,14 @@ const styles = StyleSheet.create({
   },
   carouselTitle: {
     fontWeight: '500',
-    fontSize: 18,
+    fontSize: 16,
   },
   carouselTitleIcon: {
     marginHorizontal: 6,
   },
   carouselText: {
     // fontWeight: 'bold',
-    fontSize: 14,
+    fontSize: 12,
     color: '#3D3D3D',
   },
   textIconContainer: {
