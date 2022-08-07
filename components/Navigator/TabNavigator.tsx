@@ -1,5 +1,6 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import ContactScreen from '../testScreens/ContactScreen';
 import HomeScreen from '../home/HomeScreen';
 // @ts-ignore
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -22,6 +23,26 @@ const BottomTabNavigator = () => {
       screenOptions={{
         tabBarActiveTintColor: '#e91e63',
       }}>
+
+
+
+      {/* Test */}
+      {/*<Tab.Screen*/}
+      {/*  name="Contact"*/}
+      {/*  component={ContactScreen}*/}
+      {/*  options={{*/}
+      {/*    title: 'Test',*/}
+      {/*    headerStyle: {*/}
+      {/*      backgroundColor: '#e91e63',*/}
+      {/*    },*/}
+      {/*    headerTintColor: '#fff',*/}
+      {/*    headerTitleStyle: {*/}
+      {/*      fontWeight: 'bold',*/}
+      {/*    },*/}
+      {/*  }}*/}
+      {/*/>*/}
+
+
       {/* Home */}
       <Tab.Screen
         name="Home"
@@ -102,7 +123,7 @@ const BottomTabNavigator = () => {
             <TouchableOpacity
               onPress={() => {
                 // @ts-ignore
-                navigation.navigate('Account');
+                navigation.goBack();
               }}>
               <>
                 <MaterialCommunityIcons

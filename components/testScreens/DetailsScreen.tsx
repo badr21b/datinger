@@ -35,7 +35,7 @@ const DetailsScreen = ({navigation}) => {
             return index.toString();
           }}
           renderItem={({item}) => {
-            return <UserListItem user={item} />;
+            return <UserListItem user={item} screenType={undefined} />;
           }}
         />
       ) : (
