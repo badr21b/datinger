@@ -1,19 +1,29 @@
-import {Image, Text, View} from 'react-native';
+import {Image, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import styles from './styles';
+import {useNavigation} from '@react-navigation/native';
+import {ContactStackNavigator} from '../Navigator/StackNavigator';
 
 // @ts-ignore
 const UserListItem = ({user, screenType}) => {
+  const navigation = useNavigation();
+
   return (
     <View style={styles.listItemContainer}>
       <View style={styles.pictureContainer}>
-        <Image
-          source={{
-            uri: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mzl8fHByb2ZpbGV8ZW58MHx8MHx8&w=1000&q=80',
-            // uri: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZXxlbnwwfHwwfHw%3D&w=1000&q=80',
-          }}
-          style={[styles.picture]}
-        />
+        <TouchableOpacity
+          onPress={() => {
+            // @ts-ignore
+            navigation.navigate('Contact');
+          }}>
+          <Image
+            source={{
+              uri: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mzl8fHByb2ZpbGV8ZW58MHx8MHx8&w=1000&q=80',
+              // uri: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZXxlbnwwfHwwfHw%3D&w=1000&q=80',
+            }}
+            style={[styles.picture]}
+          />
+        </TouchableOpacity>
       </View>
 
       {screenType === 'messages' && (
@@ -21,7 +31,10 @@ const UserListItem = ({user, screenType}) => {
           {/*<Text>{user.id}</Text>*/}
           {/*<Text>{user.name}</Text>*/}
           <Text style={styles.primaryText}>{user.username}</Text>
-          <Text style={styles.previewMessageText} ellipsizeMode="tail" numberOfLines={1}>
+          <Text
+            style={styles.previewMessageText}
+            ellipsizeMode="tail"
+            numberOfLines={1}>
             Hello world! message here Hello world!
           </Text>
         </View>

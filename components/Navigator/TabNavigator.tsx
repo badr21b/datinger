@@ -23,25 +23,22 @@ const BottomTabNavigator = () => {
       screenOptions={{
         tabBarActiveTintColor: '#e91e63',
       }}>
-
-
-
-      {/* Test */}
-      {/*<Tab.Screen*/}
-      {/*  name="Contact"*/}
-      {/*  component={ContactScreen}*/}
-      {/*  options={{*/}
-      {/*    title: 'Test',*/}
-      {/*    headerStyle: {*/}
-      {/*      backgroundColor: '#e91e63',*/}
-      {/*    },*/}
-      {/*    headerTintColor: '#fff',*/}
-      {/*    headerTitleStyle: {*/}
-      {/*      fontWeight: 'bold',*/}
-      {/*    },*/}
-      {/*  }}*/}
-      {/*/>*/}
-
+      {/*Test */}
+      <Tab.Screen
+        name="Contact"
+        component={ContactScreen}
+        options={{
+          title: 'Test',
+          headerStyle: {
+            backgroundColor: '#e91e63',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+          tabBarButton: () => null,
+        }}
+      />
 
       {/* Home */}
       <Tab.Screen
