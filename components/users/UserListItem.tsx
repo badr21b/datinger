@@ -14,7 +14,7 @@ const UserListItem = ({user, screenType}) => {
         <TouchableOpacity
           onPress={() => {
             // @ts-ignore
-            navigation.navigate('Contact');
+            navigation.navigate('Profile');
           }}>
           <Image
             source={{

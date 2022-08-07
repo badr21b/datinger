@@ -10,6 +10,7 @@ import {useNavigation} from '@react-navigation/native';
 import styles from './styles';
 import AccountScreen from '../account/AccountScreen';
 import MessagesListScreen from '../messages/MessagesListScreen';
+import ProfileScreen from '../users/ProfileScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -25,10 +26,10 @@ const BottomTabNavigator = () => {
       }}>
       {/*Test */}
       <Tab.Screen
-        name="Contact"
-        component={ContactScreen}
+        name="Profile"
+        component={ProfileScreen}
         options={{
-          title: 'Test',
+          title: 'Profile',
           headerStyle: {
             backgroundColor: '#e91e63',
           },
