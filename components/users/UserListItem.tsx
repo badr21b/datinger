@@ -3,7 +3,7 @@ import React from 'react';
 import styles from './styles';
 
 // @ts-ignore
-const UserListItem = ({user}) => {
+const UserListItem = ({user, screenType}) => {
   return (
     <View style={styles.listItemContainer}>
       <View style={styles.pictureContainer}>
@@ -15,14 +15,27 @@ const UserListItem = ({user}) => {
           style={[styles.picture]}
         />
       </View>
-      <View style={styles.textContainer}>
-        {/*<Text>{user.id}</Text>*/}
-        {/*<Text>{user.name}</Text>*/}
-        <Text style={styles.primaryText}>{user.username}</Text>
-        <Text style={styles.secondaryText}>{user.email}</Text>
-        <Text style={styles.secondaryText}>{user.phone}</Text>
-        <Text style={styles.secondaryText}>{user.website}</Text>
-      </View>
+
+      {screenType === 'messages' && (
+        <View style={styles.textContainer}>
+          {/*<Text>{user.id}</Text>*/}
+          {/*<Text>{user.name}</Text>*/}
+          <Text style={styles.primaryText}>{user.username}</Text>
+          <Text style={styles.previewMessageText} ellipsizeMode="tail" numberOfLines={1}>
+            Hello world! message here Hello world!
+          </Text>
+        </View>
+      )}
+      {screenType === 'likes' && (
+        <View style={styles.textContainer}>
+          {/*<Text>{user.id}</Text>*/}
+          {/*<Text>{user.name}</Text>*/}
+          <Text style={styles.primaryText}>{user.username}</Text>
+          <Text style={styles.secondaryText}>{user.email}</Text>
+          <Text style={styles.secondaryText}>{user.phone}</Text>
+          <Text style={styles.secondaryText}>{user.website}</Text>
+        </View>
+      )}
     </View>
   );
 };

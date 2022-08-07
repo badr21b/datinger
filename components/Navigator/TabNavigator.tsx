@@ -4,10 +4,11 @@ import HomeScreen from '../home/HomeScreen';
 // @ts-ignore
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import LikesListScreen from '../likes/LikesListScreen';
-import {Image, TouchableOpacity} from 'react-native';
+import {Image, Text, TouchableOpacity} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import styles from './styles';
 import AccountScreen from '../account/AccountScreen';
+import MessagesListScreen from '../messages/MessagesListScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -21,6 +22,7 @@ const BottomTabNavigator = () => {
       screenOptions={{
         tabBarActiveTintColor: '#e91e63',
       }}>
+      {/* Home */}
       <Tab.Screen
         name="Home"
         component={HomeScreen}
@@ -38,6 +40,8 @@ const BottomTabNavigator = () => {
           ),
         }}
       />
+
+      {/* Likes */}
       <Tab.Screen
         name="Likes"
         component={LikesListScreen}
@@ -66,6 +70,54 @@ const BottomTabNavigator = () => {
           ),
         }}
       />
+
+      {/* Messages */}
+      <Tab.Screen
+        name="Messages"
+        component={MessagesListScreen}
+        options={{
+          tabBarLabel: 'Messages',
+          tabBarIcon: ({color, size}) => (
+            <MaterialCommunityIcons
+              name="message-text"
+              color={color}
+              size={size}
+            />
+          ),
+          headerRight: () => (
+            <TouchableOpacity
+              onPress={() => {
+                // @ts-ignore
+                navigation.navigate('Account');
+              }}>
+              <Image
+                source={{
+                  uri: 'https://www.opticalexpress.co.uk/media/1064/man-with-glasses-smiling-looking-into-distance.jpg',
+                }}
+                style={[styles.tabPicture]}
+              />
+            </TouchableOpacity>
+          ),
+          headerLeft: () => (
+            <TouchableOpacity
+              onPress={() => {
+                // @ts-ignore
+                navigation.navigate('Account');
+              }}>
+              <>
+                <MaterialCommunityIcons
+                  style={styles.tabHeaderLeft}
+                  name="arrow-left"
+                  color={'#e91e63'}
+                  size={24}
+                />
+              </>
+            </TouchableOpacity>
+          ),
+        }}
+      />
+
+      {/* Account */}
       <Tab.Screen
         name="Account"
         component={AccountScreen}

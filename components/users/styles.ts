@@ -52,7 +52,15 @@ const styles = StyleSheet.create({
     color: '#6f6f6f',
     marginVertical: 1,
   },
-
+  previewMessageText: {
+    fontSize: 12,
+    fontWeight: 'normal',
+    color: '#6f6f6f',
+    marginVertical: 1,
+    width: '80%',
+    textAlignVertical: 'center',
+    paddingVertical: 9,
+  },
 });
 
 export default styles;

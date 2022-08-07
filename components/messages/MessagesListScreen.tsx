@@ -8,7 +8,7 @@ import UserListItem from '../users/UserListItem';
 import styles from './styles';
 
 // @ts-ignore
-const LikesListScreen = ({navigation}) => {
+const MessagesListScreen = ({navigation}) => {
   const dispatch = useDispatch();
   const apiDataList = useSelector((state: RootState) => state.userList.data[0]);
   const [showLoader, setShowLoader] = useState(true);
@@ -43,7 +43,7 @@ const LikesListScreen = ({navigation}) => {
             return index.toString();
           }}
           renderItem={({item}) => {
-            return <UserListItem user={item}  screenType={'likes'} />;
+            return <UserListItem user={item} screenType={'messages'} />;
           }}
         />
       ) : (
@@ -53,4 +53,4 @@ const LikesListScreen = ({navigation}) => {
   );
 };
 
-export default LikesListScreen;
+export default MessagesListScreen;
