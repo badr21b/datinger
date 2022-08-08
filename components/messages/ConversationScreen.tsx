@@ -48,24 +48,22 @@ const ConversationScreen = ({route}) => {
         {/*<Text>ConversationScreen</Text>*/}
 
         <KeyboardAwareScrollView
+          enableOnAndroid={true}
+          // @ts-ignore
+          ref={scrollViewRef}
+          onContentSizeChange={() =>
             // @ts-ignore
-            ref={scrollViewRef}
-            onContentSizeChange={() =>
-                // @ts-ignore
-                scrollViewRef.current.scrollToEnd({animated: true})
-            }
-
-            onKeyboardDidHide={(frames: Object) => {
-              // console.log('Keyboard event', frames)
-            }}
-        >
+            scrollViewRef.current.scrollToEnd({animated: true})
+          }
+          onKeyboardDidHide={(frames: Object) => {
+            // console.log('Keyboard event', frames)
+          }}>
           <ScrollView
             style={styles.conversationListContainer}
             contentContainerStyle={{
               alignItems: 'stretch',
               justifyContent: 'flex-end',
-            }}
-           >
+            }}>
             <View style={[styles.messageHolder, styles.messageDirectionLeft]}>
               <View style={[styles.messageContainer, styles.leftColor]}>
                 <Text style={styles.messageText}>
@@ -172,7 +170,7 @@ const ConversationScreen = ({route}) => {
 
           <View style={styles.conversationInputContainer}>
             <TextInput
-              // autoFocus={true}
+              autoFocus={true}
               style={styles.conversationInputText}
               placeholder={'Say something'}
               // onChangeText={newText => setText(newText)}
