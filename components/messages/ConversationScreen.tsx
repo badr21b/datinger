@@ -47,19 +47,21 @@ const ConversationScreen = ({route}) => {
       <SafeAreaView style={styles.conversationMainContainer}>
         {/*<Text>ConversationScreen</Text>*/}
 
-        <KeyboardAwareScrollView>
+        <KeyboardAwareScrollView
+            // @ts-ignore
+            ref={scrollViewRef}
+            onContentSizeChange={() =>
+                // @ts-ignore
+                scrollViewRef.current.scrollToEnd({animated: true})
+            }
+        >
           <ScrollView
             style={styles.conversationListContainer}
             contentContainerStyle={{
               alignItems: 'stretch',
               justifyContent: 'flex-end',
             }}
-            // @ts-ignore
-            ref={scrollViewRef}
-            onContentSizeChange={() =>
-              // @ts-ignore
-              scrollViewRef.current.scrollToEnd({animated: true})
-            }>
+           >
             <View style={[styles.messageHolder, styles.messageDirectionLeft]}>
               <View style={[styles.messageContainer, styles.leftColor]}>
                 <Text style={styles.messageText}>

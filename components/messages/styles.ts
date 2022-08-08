@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     // width: '95%',
-    height: '100%',
+    height: 'auto',
     paddingHorizontal: 20,
     // alignContent: 'center',
     // alignItems: 'stretch',
@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'center',
     flexDirection: 'row',
-    marginBottom: 50,
+    // marginBottom: 10,
 
     // width: '100%',
   },
