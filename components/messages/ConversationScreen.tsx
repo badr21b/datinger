@@ -54,6 +54,10 @@ const ConversationScreen = ({route}) => {
                 // @ts-ignore
                 scrollViewRef.current.scrollToEnd({animated: true})
             }
+
+            onKeyboardDidHide={(frames: Object) => {
+              // console.log('Keyboard event', frames)
+            }}
         >
           <ScrollView
             style={styles.conversationListContainer}
