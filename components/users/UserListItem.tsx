@@ -9,7 +9,6 @@ const UserListItem = ({user, screenType}) => {
   const [redirectScreen, setRedirectScreen] = useState('');
 
   const handleRedirectScreen = () => {
-    console.log(screenType);
     switch (screenType) {
       case 'messages':
         setRedirectScreen('Conversation');
