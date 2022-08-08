@@ -93,6 +93,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'center',
     flexDirection: 'row',
+    marginBottom: 50,
 
     // width: '100%',
   },

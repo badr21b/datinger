@@ -7,10 +7,12 @@ import {
   TextInput,
   TouchableWithoutFeedback,
   View,
+  KeyboardAvoidingView,
 } from 'react-native';
 import React, {useEffect, useState} from 'react';
 import styles from './styles';
 import {useNavigation} from '@react-navigation/native';
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 
 // @ts-ignore
 const ConversationScreen = ({route}) => {
@@ -44,133 +46,138 @@ const ConversationScreen = ({route}) => {
 
       <SafeAreaView style={styles.conversationMainContainer}>
         {/*<Text>ConversationScreen</Text>*/}
-        <ScrollView
-          style={styles.conversationListContainer}
-          contentContainerStyle={{
-            alignItems: 'stretch',
-            justifyContent: 'flex-end',
-          }}
-          // @ts-ignore
-          ref={scrollViewRef}
-          onContentSizeChange={() =>
-            scrollViewRef.current.scrollToEnd({animated: true})
-          }>
-          <View style={[styles.messageHolder, styles.messageDirectionLeft]}>
-            <View style={[styles.messageContainer, styles.leftColor]}>
-              <Text style={styles.messageText}>
-                {user.username}f frefrfrfrfrfr dzdazdzd dzzadza dzadkazj
-                oidazoidjaz oidjzaio oid dziodjzaoi jdzai djoizdjzoai jdoziadj
-                oidj oziad oidj oziad oidj oziad dziaodjzoidjzoa ijdzo ijdzojdoi
-                zaj
-              </Text>
-            </View>
-          </View>
 
-          <View style={[styles.messageHolder, styles.messageDirectionRight]}>
-            <View style={[styles.messageContainer, styles.rightColor]}>
-              <Text style={styles.messageText}>
-                {user.username}d dz dzdzdzdzdzdz
-              </Text>
+        <KeyboardAwareScrollView>
+          <ScrollView
+            style={styles.conversationListContainer}
+            contentContainerStyle={{
+              alignItems: 'stretch',
+              justifyContent: 'flex-end',
+            }}
+            // @ts-ignore
+            ref={scrollViewRef}
+            onContentSizeChange={() =>
+              // @ts-ignore
+              scrollViewRef.current.scrollToEnd({animated: true})
+            }>
+            <View style={[styles.messageHolder, styles.messageDirectionLeft]}>
+              <View style={[styles.messageContainer, styles.leftColor]}>
+                <Text style={styles.messageText}>
+                  {user.username}f frefrfrfrfrfr dzdazdzd dzzadza dzadkazj
+                  oidazoidjaz oidjzaio oid dziodjzaoi jdzai djoizdjzoai jdoziadj
+                  oidj oziad oidj oziad oidj oziad dziaodjzoidjzoa ijdzo
+                  ijdzojdoi zaj
+                </Text>
+              </View>
             </View>
-          </View>
 
-          <View style={[styles.messageHolder, styles.messageDirectionLeft]}>
-            <View style={[styles.messageContainer, styles.leftColor]}>
-              <Text style={styles.messageText}>{user.username}</Text>
+            <View style={[styles.messageHolder, styles.messageDirectionRight]}>
+              <View style={[styles.messageContainer, styles.rightColor]}>
+                <Text style={styles.messageText}>
+                  {user.username}d dz dzdzdzdzdzdz
+                </Text>
+              </View>
             </View>
-          </View>
-          <View style={[styles.messageHolder, styles.messageDirectionLeft]}>
-            <View style={[styles.messageContainer, styles.leftColor]}>
-              <Text style={styles.messageText}>
-                {user.username}f frefrfrfrfrfr dzdazdzd dzzadza dzadkazj
-                oidazoidjaz oidjzaio oid dziodjzaoi jdzai djoizdjzoai jdoziadj
-                oidj oziad oidj oziad oidj oziad dziaodjzoidjzoa ijdzo ijdzojdoi
-                zaj
-              </Text>
-            </View>
-          </View>
 
-          <View style={[styles.messageHolder, styles.messageDirectionRight]}>
-            <View style={[styles.messageContainer, styles.rightColor]}>
-              <Text style={styles.messageText}>
-                {user.username}d dz dzdzdzdzdzdz
-              </Text>
+            <View style={[styles.messageHolder, styles.messageDirectionLeft]}>
+              <View style={[styles.messageContainer, styles.leftColor]}>
+                <Text style={styles.messageText}>{user.username}</Text>
+              </View>
             </View>
-          </View>
+            <View style={[styles.messageHolder, styles.messageDirectionLeft]}>
+              <View style={[styles.messageContainer, styles.leftColor]}>
+                <Text style={styles.messageText}>
+                  {user.username}f frefrfrfrfrfr dzdazdzd dzzadza dzadkazj
+                  oidazoidjaz oidjzaio oid dziodjzaoi jdzai djoizdjzoai jdoziadj
+                  oidj oziad oidj oziad oidj oziad dziaodjzoidjzoa ijdzo
+                  ijdzojdoi zaj
+                </Text>
+              </View>
+            </View>
 
-          <View style={[styles.messageHolder, styles.messageDirectionLeft]}>
-            <View style={[styles.messageContainer, styles.leftColor]}>
-              <Text style={styles.messageText}>{user.username}</Text>
+            <View style={[styles.messageHolder, styles.messageDirectionRight]}>
+              <View style={[styles.messageContainer, styles.rightColor]}>
+                <Text style={styles.messageText}>
+                  {user.username}d dz dzdzdzdzdzdz
+                </Text>
+              </View>
             </View>
-          </View>
-          <View style={[styles.messageHolder, styles.messageDirectionLeft]}>
-            <View style={[styles.messageContainer, styles.leftColor]}>
-              <Text style={styles.messageText}>
-                {user.username}f frefrfrfrfrfr dzdazdzd dzzadza dzadkazj
-                oidazoidjaz oidjzaio oid dziodjzaoi jdzai djoizdjzoai jdoziadj
-                oidj oziad oidj oziad oidj oziad dziaodjzoidjzoa ijdzo ijdzojdoi
-                zaj
-              </Text>
-            </View>
-          </View>
 
-          <View style={[styles.messageHolder, styles.messageDirectionRight]}>
-            <View style={[styles.messageContainer, styles.rightColor]}>
-              <Text style={styles.messageText}>
-                {user.username}d dz dzdzdzdzdzdz
-              </Text>
+            <View style={[styles.messageHolder, styles.messageDirectionLeft]}>
+              <View style={[styles.messageContainer, styles.leftColor]}>
+                <Text style={styles.messageText}>{user.username}</Text>
+              </View>
             </View>
-          </View>
+            <View style={[styles.messageHolder, styles.messageDirectionLeft]}>
+              <View style={[styles.messageContainer, styles.leftColor]}>
+                <Text style={styles.messageText}>
+                  {user.username}f frefrfrfrfrfr dzdazdzd dzzadza dzadkazj
+                  oidazoidjaz oidjzaio oid dziodjzaoi jdzai djoizdjzoai jdoziadj
+                  oidj oziad oidj oziad oidj oziad dziaodjzoidjzoa ijdzo
+                  ijdzojdoi zaj
+                </Text>
+              </View>
+            </View>
 
-          <View style={[styles.messageHolder, styles.messageDirectionLeft]}>
-            <View style={[styles.messageContainer, styles.leftColor]}>
-              <Text style={styles.messageText}>{user.username}</Text>
+            <View style={[styles.messageHolder, styles.messageDirectionRight]}>
+              <View style={[styles.messageContainer, styles.rightColor]}>
+                <Text style={styles.messageText}>
+                  {user.username}d dz dzdzdzdzdzdz
+                </Text>
+              </View>
             </View>
-          </View>
-          <View style={[styles.messageHolder, styles.messageDirectionLeft]}>
-            <View style={[styles.messageContainer, styles.leftColor]}>
-              <Text style={styles.messageText}>
-                {user.username}f frefrfrfrfrfr dzdazdzd dzzadza dzadkazj
-                oidazoidjaz oidjzaio oid dziodjzaoi jdzai djoizdjzoai jdoziadj
-                oidj oziad oidj oziad oidj oziad dziaodjzoidjzoa ijdzo ijdzojdoi
-                zaj
-              </Text>
-            </View>
-          </View>
 
-          <View style={[styles.messageHolder, styles.messageDirectionRight]}>
-            <View style={[styles.messageContainer, styles.rightColor]}>
-              <Text style={styles.messageText}>
-                {user.username}d dz dzdzdzdzdzdz
-              </Text>
+            <View style={[styles.messageHolder, styles.messageDirectionLeft]}>
+              <View style={[styles.messageContainer, styles.leftColor]}>
+                <Text style={styles.messageText}>{user.username}</Text>
+              </View>
             </View>
-          </View>
-
-          <View style={[styles.messageHolder, styles.messageDirectionLeft]}>
-            <View style={[styles.messageContainer, styles.leftColor]}>
-              <Text style={styles.messageText}>{user.username}</Text>
+            <View style={[styles.messageHolder, styles.messageDirectionLeft]}>
+              <View style={[styles.messageContainer, styles.leftColor]}>
+                <Text style={styles.messageText}>
+                  {user.username}f frefrfrfrfrfr dzdazdzd dzzadza dzadkazj
+                  oidazoidjaz oidjzaio oid dziodjzaoi jdzai djoizdjzoai jdoziadj
+                  oidj oziad oidj oziad oidj oziad dziaodjzoidjzoa ijdzo
+                  ijdzojdoi zaj
+                </Text>
+              </View>
             </View>
-          </View>
 
-          <View style={[styles.messageHolder, styles.messageDirectionRight]}>
-            <View style={[styles.messageContainer, styles.rightColor]}>
-              <Text style={styles.messageText}>{user.username}</Text>
+            <View style={[styles.messageHolder, styles.messageDirectionRight]}>
+              <View style={[styles.messageContainer, styles.rightColor]}>
+                <Text style={styles.messageText}>
+                  {user.username}d dz dzdzdzdzdzdz
+                </Text>
+              </View>
             </View>
-          </View>
-        </ScrollView>
 
-        <View style={styles.conversationInputContainer}>
-          <TextInput
-            style={styles.conversationInputText}
-            placeholder={'Say something'}
-            // onChangeText={newText => setText(newText)}
-            // defaultValue={'Say something'}
-          />
-          <TouchableWithoutFeedback>
-            <Text style={styles.sendButton}>Send</Text>
-          </TouchableWithoutFeedback>
-          {/*<Button title={'Send'} />*/}
-        </View>
+            <View style={[styles.messageHolder, styles.messageDirectionLeft]}>
+              <View style={[styles.messageContainer, styles.leftColor]}>
+                <Text style={styles.messageText}>{user.username}</Text>
+              </View>
+            </View>
+
+            <View style={[styles.messageHolder, styles.messageDirectionRight]}>
+              <View style={[styles.messageContainer, styles.rightColor]}>
+                <Text style={styles.messageText}>{user.username}</Text>
+              </View>
+            </View>
+          </ScrollView>
+
+          <View style={styles.conversationInputContainer}>
+            <TextInput
+              // autoFocus={true}
+              style={styles.conversationInputText}
+              placeholder={'Say something'}
+              // onChangeText={newText => setText(newText)}
+              // defaultValue={'Say something'}
+            />
+            <TouchableWithoutFeedback>
+              <Text style={styles.sendButton}>Send</Text>
+            </TouchableWithoutFeedback>
+            {/*<Button title={'Send'} />*/}
+          </View>
+        </KeyboardAwareScrollView>
       </SafeAreaView>
     </View>
   );

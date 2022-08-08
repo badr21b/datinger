@@ -45,7 +45,14 @@ const UserListItem = ({user, screenType}) => {
 
       {screenType === 'messages' && (
         <View style={styles.textContainer}>
-          <Text style={styles.primaryText}>{user.username}</Text>
+          <Text
+            onPress={() => {
+              // @ts-ignore
+              navigation.navigate(redirectScreen, {user: user});
+            }}
+            style={styles.primaryText}>
+            {user.username}
+          </Text>
           <Text
             style={styles.previewMessageText}
             ellipsizeMode="tail"
@@ -58,7 +65,14 @@ const UserListItem = ({user, screenType}) => {
         <View style={styles.textContainer}>
           {/*<Text>{user.id}</Text>*/}
           {/*<Text>{user.name}</Text>*/}
-          <Text style={styles.primaryText}>{user.username}</Text>
+          <Text
+            onPress={() => {
+              // @ts-ignore
+              navigation.navigate(redirectScreen, {user: user});
+            }}
+            style={styles.primaryText}>
+            {user.username}
+          </Text>
           <Text style={styles.secondaryText}>{user.email}</Text>
           <Text style={styles.secondaryText}>{user.phone}</Text>
           <Text style={styles.secondaryText}>{user.website}</Text>
