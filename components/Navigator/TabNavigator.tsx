@@ -1,11 +1,10 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import ContactScreen from '../testScreens/ContactScreen';
 import HomeScreen from '../home/HomeScreen';
 // @ts-ignore
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import LikesListScreen from '../likes/LikesListScreen';
-import {Image, Text, TouchableOpacity} from 'react-native';
+import {Image, TouchableOpacity} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import styles from './styles';
 import AccountScreen from '../account/AccountScreen';
@@ -39,6 +38,22 @@ const BottomTabNavigator = () => {
             fontWeight: 'bold',
           },
           tabBarButton: () => null,
+          headerLeft: () => (
+            <TouchableOpacity
+              onPress={() => {
+                // @ts-ignore
+                navigation.navigate('likes');
+              }}>
+              <>
+                <MaterialCommunityIcons
+                  style={styles.tabHeaderLeft}
+                  name="arrow-left"
+                  color={'#ffffff'}
+                  size={24}
+                />
+              </>
+            </TouchableOpacity>
+          ),
         }}
       />
       <Tab.Screen
