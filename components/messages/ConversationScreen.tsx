@@ -2,6 +2,7 @@ import {
   Button,
   Image,
   SafeAreaView,
+  ScrollView,
   Text,
   TextInput,
   TouchableWithoutFeedback,
@@ -14,6 +15,7 @@ import {useNavigation} from '@react-navigation/native';
 // @ts-ignore
 const ConversationScreen = ({route}) => {
   const navigation = useNavigation();
+  const scrollViewRef = React.useRef();
 
   const [user, setUser] = useState({
     username: '',
@@ -42,7 +44,89 @@ const ConversationScreen = ({route}) => {
 
       <SafeAreaView style={styles.conversationMainContainer}>
         {/*<Text>ConversationScreen</Text>*/}
-        <View style={styles.conversationListContainer}>
+        <ScrollView
+          style={styles.conversationListContainer}
+          contentContainerStyle={{
+            alignItems: 'stretch',
+            justifyContent: 'flex-end',
+          }}
+          // @ts-ignore
+          ref={scrollViewRef}
+          onContentSizeChange={() =>
+            scrollViewRef.current.scrollToEnd({animated: true})
+          }>
+          <View style={[styles.messageHolder, styles.messageDirectionLeft]}>
+            <View style={[styles.messageContainer, styles.leftColor]}>
+              <Text style={styles.messageText}>
+                {user.username}f frefrfrfrfrfr dzdazdzd dzzadza dzadkazj
+                oidazoidjaz oidjzaio oid dziodjzaoi jdzai djoizdjzoai jdoziadj
+                oidj oziad oidj oziad oidj oziad dziaodjzoidjzoa ijdzo ijdzojdoi
+                zaj
+              </Text>
+            </View>
+          </View>
+
+          <View style={[styles.messageHolder, styles.messageDirectionRight]}>
+            <View style={[styles.messageContainer, styles.rightColor]}>
+              <Text style={styles.messageText}>
+                {user.username}d dz dzdzdzdzdzdz
+              </Text>
+            </View>
+          </View>
+
+          <View style={[styles.messageHolder, styles.messageDirectionLeft]}>
+            <View style={[styles.messageContainer, styles.leftColor]}>
+              <Text style={styles.messageText}>{user.username}</Text>
+            </View>
+          </View>
+          <View style={[styles.messageHolder, styles.messageDirectionLeft]}>
+            <View style={[styles.messageContainer, styles.leftColor]}>
+              <Text style={styles.messageText}>
+                {user.username}f frefrfrfrfrfr dzdazdzd dzzadza dzadkazj
+                oidazoidjaz oidjzaio oid dziodjzaoi jdzai djoizdjzoai jdoziadj
+                oidj oziad oidj oziad oidj oziad dziaodjzoidjzoa ijdzo ijdzojdoi
+                zaj
+              </Text>
+            </View>
+          </View>
+
+          <View style={[styles.messageHolder, styles.messageDirectionRight]}>
+            <View style={[styles.messageContainer, styles.rightColor]}>
+              <Text style={styles.messageText}>
+                {user.username}d dz dzdzdzdzdzdz
+              </Text>
+            </View>
+          </View>
+
+          <View style={[styles.messageHolder, styles.messageDirectionLeft]}>
+            <View style={[styles.messageContainer, styles.leftColor]}>
+              <Text style={styles.messageText}>{user.username}</Text>
+            </View>
+          </View>
+          <View style={[styles.messageHolder, styles.messageDirectionLeft]}>
+            <View style={[styles.messageContainer, styles.leftColor]}>
+              <Text style={styles.messageText}>
+                {user.username}f frefrfrfrfrfr dzdazdzd dzzadza dzadkazj
+                oidazoidjaz oidjzaio oid dziodjzaoi jdzai djoizdjzoai jdoziadj
+                oidj oziad oidj oziad oidj oziad dziaodjzoidjzoa ijdzo ijdzojdoi
+                zaj
+              </Text>
+            </View>
+          </View>
+
+          <View style={[styles.messageHolder, styles.messageDirectionRight]}>
+            <View style={[styles.messageContainer, styles.rightColor]}>
+              <Text style={styles.messageText}>
+                {user.username}d dz dzdzdzdzdzdz
+              </Text>
+            </View>
+          </View>
+
+          <View style={[styles.messageHolder, styles.messageDirectionLeft]}>
+            <View style={[styles.messageContainer, styles.leftColor]}>
+              <Text style={styles.messageText}>{user.username}</Text>
+            </View>
+          </View>
           <View style={[styles.messageHolder, styles.messageDirectionLeft]}>
             <View style={[styles.messageContainer, styles.leftColor]}>
               <Text style={styles.messageText}>
@@ -73,7 +157,7 @@ const ConversationScreen = ({route}) => {
               <Text style={styles.messageText}>{user.username}</Text>
             </View>
           </View>
-        </View>
+        </ScrollView>
 
         <View style={styles.conversationInputContainer}>
           <TextInput
