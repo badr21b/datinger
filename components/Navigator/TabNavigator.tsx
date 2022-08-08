@@ -135,6 +135,22 @@ const BottomTabNavigator = () => {
               />
             </TouchableOpacity>
           ),
+          headerLeft: () => (
+            <TouchableOpacity
+              onPress={() => {
+                // @ts-ignore
+                navigation.navigate('Home');
+              }}>
+              <>
+                <MaterialCommunityIcons
+                  style={styles.tabHeaderLeft}
+                  name="cards"
+                  color={'#e91e63'}
+                  size={24}
+                />
+              </>
+            </TouchableOpacity>
+          ),
         }}
       />
 
