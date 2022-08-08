@@ -4,7 +4,7 @@ const styles = StyleSheet.create({
   tabPicture: {
     width: 30,
     height: 30,
-    backgroundColor: '#FE474C',
+    backgroundColor: '#d2d2d2',
     borderRadius: 100,
     shadowColor: 'rgba(0,0,0,0.5)',
     shadowOffset: {
