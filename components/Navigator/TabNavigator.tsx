@@ -11,6 +11,7 @@ import styles from './styles';
 import AccountScreen from '../account/AccountScreen';
 import MessagesListScreen from '../messages/MessagesListScreen';
 import ProfileScreen from '../users/ProfileScreen';
+import ConversationScreen from '../messages/ConversationScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -24,7 +25,7 @@ const BottomTabNavigator = () => {
       screenOptions={{
         tabBarActiveTintColor: '#e91e63',
       }}>
-      {/*Test */}
+      {/* Hidden Tabs */}
       <Tab.Screen
         name="Profile"
         component={ProfileScreen}
@@ -38,6 +39,38 @@ const BottomTabNavigator = () => {
             fontWeight: 'bold',
           },
           tabBarButton: () => null,
+        }}
+      />
+      <Tab.Screen
+        name="Conversation"
+        component={ConversationScreen}
+        options={{
+          title: 'Conversation',
+          headerStyle: {
+            backgroundColor: '#e91e63',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+          tabBarStyle: {display: 'none'},
+          tabBarButton: () => null,
+          headerLeft: () => (
+            <TouchableOpacity
+              onPress={() => {
+                // @ts-ignore
+                navigation.navigate('Messages');
+              }}>
+              <>
+                <MaterialCommunityIcons
+                  style={styles.tabHeaderLeft}
+                  name="arrow-left"
+                  color={'#ffffff'}
+                  size={24}
+                />
+              </>
+            </TouchableOpacity>
+          ),
         }}
       />
 

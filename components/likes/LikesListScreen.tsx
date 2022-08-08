@@ -22,7 +22,7 @@ const LikesListScreen = ({navigation}) => {
   }, []);
 
   return (
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+    <View style={styles.container}>
       {/*<View style={styles.stackNavBar}>*/}
       {/*  <Button*/}
       {/*    title="Go to Home"*/}

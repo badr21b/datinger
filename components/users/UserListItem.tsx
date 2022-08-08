@@ -1,12 +1,30 @@
 import {Image, Text, TouchableOpacity, View} from 'react-native';
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from './styles';
 import {useNavigation} from '@react-navigation/native';
-import {ContactStackNavigator} from '../Navigator/StackNavigator';
 
 // @ts-ignore
 const UserListItem = ({user, screenType}) => {
   const navigation = useNavigation();
+  const [redirectScreen, setRedirectScreen] = useState('');
+
+  const handleRedirectScreen = () => {
+    console.log(screenType);
+    switch (screenType) {
+      case 'messages':
+        setRedirectScreen('Conversation');
+        break;
+      case 'likes':
+        setRedirectScreen('Profile');
+        break;
+      default:
+        setRedirectScreen('Home');
+    }
+  };
+
+  useEffect(() => {
+    handleRedirectScreen();
+  }, [screenType]);
 
   return (
     <View style={styles.listItemContainer}>
@@ -14,7 +32,7 @@ const UserListItem = ({user, screenType}) => {
         <TouchableOpacity
           onPress={() => {
             // @ts-ignore
-            navigation.navigate('Profile');
+            navigation.navigate(redirectScreen, {user: user});
           }}>
           <Image
             source={{
@@ -28,8 +46,6 @@ const UserListItem = ({user, screenType}) => {
 
       {screenType === 'messages' && (
         <View style={styles.textContainer}>
-          {/*<Text>{user.id}</Text>*/}
-          {/*<Text>{user.name}</Text>*/}
           <Text style={styles.primaryText}>{user.username}</Text>
           <Text
             style={styles.previewMessageText}

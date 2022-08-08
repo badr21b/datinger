@@ -1,10 +1,10 @@
-import {Image, Text, View} from 'react-native';
+import {Button, Image, Text, View} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import styles from './styles';
 import {useNavigation} from '@react-navigation/native';
 
 // @ts-ignore
-const ProfileScreen = ({route}) => {
+const ConversationScreen = ({route}) => {
   const navigation = useNavigation();
 
   const [user, setUser] = useState({
@@ -24,12 +24,20 @@ const ProfileScreen = ({route}) => {
 
   return (
     <View style={styles.listItemContainer}>
+      {/*<View style={styles.stackNavBar}>*/}
+      {/*  <Button*/}
+      {/*    title="Go to Home"*/}
+      {/*    // @ts-ignore*/}
+      {/*    onPress={() => navigation.navigate('Home')}*/}
+      {/*  />*/}
+      {/*</View>*/}
+
       <View>
-        <Text>ProfileScreen</Text>
+        <Text>ConversationScreen</Text>
         <Text>{user.username}</Text>
       </View>
     </View>
   );
 };
 
-export default ProfileScreen;
+export default ConversationScreen;
