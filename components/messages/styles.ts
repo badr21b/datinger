@@ -29,6 +29,89 @@ const styles = StyleSheet.create({
     justifyContent: 'space-evenly',
     flexDirection: 'row',
     width: '100%',
+    backgroundColor: '#ffffff',
+  },
+
+  conversationMainContainer: {
+    flex: 1,
+  },
+
+  conversationListContainer: {
+    flex: 1,
+    flexDirection: 'column',
+    // width: '95%',
+    height: '100%',
+    paddingHorizontal: 20,
+    // alignContent: 'center',
+    alignItems: 'stretch',
+    justifyContent: 'flex-end',
+    // alignItems: 'center',
+    // borderWidth: 1,
+    // backgroundColor: 'yellow',
+    paddingVertical: 24,
+  },
+  messageHolder: {
+    marginVertical: 12,
+
+    // borderWidth: 1,
+    flexDirection: 'row',
+  },
+  messageDirectionLeft: {
+    justifyContent: 'flex-end',
+  },
+  rightColor: {
+    backgroundColor: '#E7F6F2',
+  },
+
+  leftColor: {
+    backgroundColor: '#F6F6F6',
+  },
+
+  messageDirectionRight: {
+    justifyContent: 'flex-start',
+  },
+  messageContainer: {
+    padding: 12,
+    maxWidth: '60%',
+    textAlign: 'center',
+    lineHeight: 1,
+    // borderColor: 'red',
+    // borderWidth: 1,
+    borderRadius: 18,
+    backgroundColor: '#d2d2d2',
+  },
+  messageText: {
+    fontSize: 12,
+    color: '#000',
+    paddingHorizontal: 3,
+  },
+
+  conversationInputContainer: {
+    height: 50,
+    borderTopWidth: 1,
+    borderTopColor: '#d2d2d2',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    flexDirection: 'row',
+
+    // width: '100%',
+  },
+  conversationInputText: {
+    width: '80%',
+    height: 40,
+    paddingHorizontal: 10,
+    paddingVertical: 10,
+    paddingLeft: 20,
+  },
+  sendButton: {
+    height: 40,
+    paddingHorizontal: 10,
+    paddingVertical: 10,
+    paddingLeft: 20,
+    width: '15%',
+    fontSize: 14,
+    fontWeight: 'bold',
+    color: '#000',
   },
 });
 
