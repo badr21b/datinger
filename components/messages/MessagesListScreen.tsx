@@ -15,9 +15,11 @@ const MessagesListScreen = ({navigation}) => {
 
   useEffect(() => {
     setTimeout(() => {
-      setShowLoader(false);
       // @ts-ignore
       return dispatch(getTodoAsync());
+    }, 100);
+    setTimeout(() => {
+      setShowLoader(false);
     }, 1500);
   }, []);
 

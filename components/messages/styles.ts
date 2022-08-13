@@ -104,15 +104,29 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     paddingLeft: 20,
   },
+
   sendButton: {
-    height: 40,
     paddingHorizontal: 10,
-    paddingVertical: 10,
-    paddingLeft: 20,
-    width: '15%',
-    fontSize: 14,
+    paddingVertical: 6,
     fontWeight: 'bold',
-    color: '#000',
+    borderRadius: 6,
+    backgroundColor: '#e91e63',
+    borderColor: '#e91e63',
+  },
+  sendButtonText: {
+    color: '#ffffff',
+  },
+  sendButtonDisabled: {
+    paddingHorizontal: 10,
+    paddingVertical: 6,
+    fontWeight: 'bold',
+    borderRadius: 6,
+    backgroundColor: '#ffffff',
+    borderColor: '#e91e63',
+    borderWidth: 1,
+  },
+  sendButtonTextDisabled: {
+    color: '#e91e63',
   },
 });
 

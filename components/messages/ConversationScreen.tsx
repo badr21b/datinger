@@ -7,7 +7,6 @@ import {
   TextInput,
   TouchableWithoutFeedback,
   View,
-  KeyboardAvoidingView,
 } from 'react-native';
 import React, {useEffect, useState} from 'react';
 import styles from './styles';
@@ -22,6 +21,11 @@ const ConversationScreen = ({route}) => {
   const [user, setUser] = useState({
     username: '',
   });
+  const [msgToSend, setMsgToSend] = useState('');
+
+  const handleInputChange = (e: any) => {
+    setMsgToSend(e);
+  };
 
   // console.log(route.params.user);
 
@@ -173,11 +177,29 @@ const ConversationScreen = ({route}) => {
               autoFocus={true}
               style={styles.conversationInputText}
               placeholder={'Say something'}
-              // onChangeText={newText => setText(newText)}
+              onChangeText={(e: any) => {
+                handleInputChange(e);
+              }}
               // defaultValue={'Say something'}
             />
             <TouchableWithoutFeedback>
-              <Text style={styles.sendButton}>Send</Text>
+              <View
+                style={
+                  msgToSend.length > 0
+                    ? styles.sendButton
+                    : styles.sendButtonDisabled
+                }>
+                <Text
+                  adjustsFontSizeToFit={true}
+                  numberOfLines={1}
+                  style={
+                    msgToSend.length > 0
+                      ? styles.sendButtonText
+                      : styles.sendButtonTextDisabled
+                  }>
+                  Send
+                </Text>
+              </View>
             </TouchableWithoutFeedback>
             {/*<Button title={'Send'} />*/}
           </View>
