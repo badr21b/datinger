@@ -22,7 +22,7 @@ const UserList: FunctionComponent = () => {
           renderItem={({item}) => {
             return (
               <>
-                <UserListItem user={item} />
+                <UserListItem user={item} screenType={undefined} />
               </>
             );
           }}

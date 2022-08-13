@@ -1,6 +1,6 @@
 import {Image, Text, View} from 'react-native';
 import React, {useEffect, useState} from 'react';
-import styles from './styles';
+import styles from './ProfileScreenStyles';
 import {useNavigation} from '@react-navigation/native';
 
 // @ts-ignore
@@ -11,7 +11,7 @@ const ProfileScreen = ({route}) => {
     username: '',
   });
 
-  // console.log(route.params.user);
+  //const getUserProfile = () => {};
 
   useEffect(() => {
     setUser(route.params.user);
@@ -23,9 +23,18 @@ const ProfileScreen = ({route}) => {
   }, [navigation, route.params.user]);
 
   return (
-    <View style={styles.listItemContainer}>
+    <View>
+      <View style={styles.pictureContainer}>
+        <Image
+          style={styles.picture}
+          source={{
+            uri: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mzl8fHByb2ZpbGV8ZW58MHx8MHx8&w=1000&q=80',
+            // uri: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZXxlbnwwfHwwfHw%3D&w=1000&q=80',
+          }}
+        />
+      </View>
+
       <View>
-        <Text>ProfileScreen</Text>
         <Text>{user.username}</Text>
       </View>
     </View>
