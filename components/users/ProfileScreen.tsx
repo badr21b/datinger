@@ -1,4 +1,4 @@
-import {Image, Text, View} from 'react-native';
+import {Image, SafeAreaView, ScrollView, Text, View} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import styles from './ProfileScreenStyles';
 import {useNavigation} from '@react-navigation/native';
@@ -9,7 +9,7 @@ const ProfileScreen = ({route}) => {
 
   const [user, setUser] = useState({
     profilePicture: route.params.user.profile.picture,
-    username: route.params.user.profile.username,
+    username: route.params.user.profile.name,
     age: route.params.user.profile.age,
     city: route.params.user.profile.city,
     country: route.params.user.profile.country,
@@ -23,12 +23,12 @@ const ProfileScreen = ({route}) => {
     console.log(route.params.user);
 
     navigation.setOptions({
-      title: route.params.user.profile.username,
+      title: route.params.user.profile.name,
     });
 
     setUser({
       profilePicture: route.params.user.profile.picture,
-      username: route.params.user.profile.username,
+      username: route.params.user.profile.name,
       age: route.params.user.profile.age,
       city: route.params.user.profile.city,
       country: route.params.user.profile.country,
@@ -37,38 +37,40 @@ const ProfileScreen = ({route}) => {
   }, [navigation, route.params.user]);
 
   return (
-    <View style={styles.profileContainer}>
-      <View style={styles.pictureContainer}>
-        <Image
-          style={styles.picture}
-          source={{
-            uri: user.profilePicture,
-          }}
-        />
-        <View style={styles.matchingHolder}>
-          <Text style={styles.matchingText}>{user.matching}%</Text>
+    <SafeAreaView style={styles.profileContainer}>
+      <ScrollView>
+        <View style={styles.pictureContainer}>
+          <Image
+            style={styles.picture}
+            source={{
+              uri: user.profilePicture,
+            }}
+          />
+          <View style={styles.matchingHolder}>
+            <Text style={styles.matchingText}>{user.matching}%</Text>
+          </View>
         </View>
-      </View>
 
-      <View style={styles.profileMainInfo}>
-        <Text
-          style={[
-            styles.textBold,
-            styles.fullWidthContainer,
-            styles.blackText,
-          ]}>
-          {user.username}
-        </Text>
-        <Text
-          style={[
-            styles.texNormal,
-            styles.fullWidthContainer,
-            styles.grayText,
-          ]}>
-          {user.age} - {user.city}, {user.country}
-        </Text>
-      </View>
-    </View>
+        <View style={styles.profileMainInfo}>
+          <Text
+            style={[
+              styles.textBold,
+              styles.fullWidthContainer,
+              styles.blackText,
+            ]}>
+            {user.username}
+          </Text>
+          <Text
+            style={[
+              styles.texNormal,
+              styles.fullWidthContainer,
+              styles.grayText,
+            ]}>
+            {user.age} - {user.city}, {user.country}
+          </Text>
+        </View>
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 

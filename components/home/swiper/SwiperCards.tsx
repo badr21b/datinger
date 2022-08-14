@@ -10,7 +10,7 @@ import {User as userType} from '../../../data/users/userListSlice';
 import NoCards from './NoCards';
 import SwipeArrowButton from './SwipeArrowButton';
 import {useNavigation} from '@react-navigation/native';
-import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const SwiperCards = ({}) => {
   const navigation = useNavigation();
@@ -37,8 +37,6 @@ const SwiperCards = ({}) => {
 
   useEffect(() => {
     setTimeout(() => {
-      console.log(currentCardIndex);
-      console.log(cardUsersState.users[currentCardIndex]);
       return setCurrentCardSwipeDecision('');
     }, 500);
   }, [currentCardSwipeDecision]);

@@ -112,7 +112,6 @@ const userListSlice = createSlice({
           user.interaction.swipeDirection = action.payload.decision;
         }
       });
-      // console.log(state.users);
     },
 
     getTodo: (state, action) => {
