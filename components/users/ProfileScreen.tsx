@@ -8,27 +8,31 @@ const ProfileScreen = ({route}) => {
   const navigation = useNavigation();
 
   const [user, setUser] = useState({
-    username: route.params.user.username,
-    age: 28,
-    city: 'Moscow',
-    country: 'Russia',
+    profilePicture: route.params.user.profile.picture,
+    username: route.params.user.profile.username,
+    age: route.params.user.profile.age,
+    city: route.params.user.profile.city,
+    country: route.params.user.profile.country,
+    matching: route.params.user.interaction.matching,
   });
 
   //const getUserProfile = () => {};
 
   useEffect(() => {
     setUser(route.params.user);
-    // console.log(route.params.user);
+    console.log(route.params.user);
 
     navigation.setOptions({
-      title: route.params.user.username,
+      title: route.params.user.profile.username,
     });
 
     setUser({
-      username: route.params.user.username,
-      age: 28,
-      city: 'Moscow',
-      country: 'Russia',
+      profilePicture: route.params.user.profile.picture,
+      username: route.params.user.profile.username,
+      age: route.params.user.profile.age,
+      city: route.params.user.profile.city,
+      country: route.params.user.profile.country,
+      matching: route.params.user.interaction.matching,
     });
   }, [navigation, route.params.user]);
 
@@ -38,9 +42,12 @@ const ProfileScreen = ({route}) => {
         <Image
           style={styles.picture}
           source={{
-            uri: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mzl8fHByb2ZpbGV8ZW58MHx8MHx8&w=1000&q=80',
+            uri: user.profilePicture,
           }}
         />
+        <View style={styles.matchingHolder}>
+          <Text style={styles.matchingText}>{user.matching}%</Text>
+        </View>
       </View>
 
       <View style={styles.profileMainInfo}>

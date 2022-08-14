@@ -33,6 +33,7 @@ const BottomTabNavigator = () => {
           headerStyle: {
             backgroundColor: '#e91e63',
           },
+          tabBarStyle: {display: 'none'},
           headerTintColor: '#fff',
           headerTitleStyle: {
             fontWeight: 'bold',
@@ -42,7 +43,8 @@ const BottomTabNavigator = () => {
             <TouchableOpacity
               onPress={() => {
                 // @ts-ignore
-                navigation.navigate('likes');
+                navigation.navigate('Likes');
+                //navigation.goBack();
               }}>
               <>
                 <MaterialCommunityIcons

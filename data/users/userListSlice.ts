@@ -1,6 +1,5 @@
 import {createSlice} from '@reduxjs/toolkit';
 import axios from 'axios';
-import * as dataDB from '../db/userData.json';
 
 // TS
 export type User = {
@@ -12,11 +11,14 @@ type userProfile = {
   name: string;
   age: number;
   picture: string;
+  city: string;
+  country: string;
 };
 type userInteraction = {
   isLiked: boolean;
   swipeDirection: string;
   isBlocked: boolean;
+  matching: number;
 };
 type userConnectionStatus = {
   onlineStatus: string;
@@ -40,11 +42,14 @@ const initialState: userListState = {
         age: 33,
         picture:
           'https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mzl8fHByb2ZpbGV8ZW58MHx8MHx8&w=1000&q=80',
+        city: 'Moscow',
+        country: 'Russia',
       },
       interaction: {
         isLiked: false,
         swipeDirection: '',
         isBlocked: false,
+        matching: 91,
       },
       connectionStatus: {
         onlineStatus: 'disconnected',
@@ -57,11 +62,14 @@ const initialState: userListState = {
         age: 33,
         picture:
           'https://images.unsplash.com/photo-1522228115018-d838bcce5c3a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fHByb2ZpbGUlMjB3b21hbnxlbnwwfHwwfHw%3D&w=1000&q=80',
+        city: 'Moscow',
+        country: 'Russia',
       },
       interaction: {
         isLiked: false,
         swipeDirection: '',
         isBlocked: false,
+        matching: 95,
       },
       connectionStatus: {
         onlineStatus: 'online',
@@ -74,11 +82,14 @@ const initialState: userListState = {
         age: 33,
         picture:
           'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZXxlbnwwfHwwfHw%3D&w=1000&q=80',
+        city: 'Moscow',
+        country: 'Russia',
       },
       interaction: {
         isLiked: false,
         swipeDirection: '',
         isBlocked: false,
+        matching: 91,
       },
       connectionStatus: {
         onlineStatus: 'disconnected',

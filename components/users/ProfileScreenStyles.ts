@@ -6,6 +6,28 @@ const styles = StyleSheet.create({
     width: undefined,
   },
 
+  matchingHolder: {
+    position: 'absolute', // child
+    bottom: 20, // position where you want
+    right: 20,
+    backgroundColor: '#fd267d',
+    borderRadius: 100,
+    width: 70,
+    height: 70,
+    justifyContent: 'center',
+    alignContent: 'center',
+    shadowOffset: {width: 3, height: 3},
+    shadowColor: '#ffffff',
+    shadowOpacity: 0.7,
+    shadowRadius: 9,
+  },
+  matchingText: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#ffffff',
+    textAlign: 'center',
+  },
+
   pictureContainer: {
     height: 400,
     //flex: 0.6,
@@ -36,11 +58,11 @@ const styles = StyleSheet.create({
   },
   textBold: {
     fontWeight: '500',
-    fontSize: 24,
+    fontSize: 21,
   },
   texNormal: {
     fontWeight: '500',
-    fontSize: 16,
+    fontSize: 14,
     paddingVertical: 6,
   },
   blackText: {

@@ -1,5 +1,5 @@
 // @ts-ignore
-import {Image, Text, View} from 'react-native';
+import {Image, Text, TouchableOpacity, View} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import CardStack, {Card} from 'react-native-card-stack-swiper';
 import styles from './styles';
@@ -9,14 +9,18 @@ import {swipeUser} from '../../../data/users/userListSlice';
 import {User as userType} from '../../../data/users/userListSlice';
 import NoCards from './NoCards';
 import SwipeArrowButton from './SwipeArrowButton';
+import {useNavigation} from '@react-navigation/native';
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 
 const SwiperCards = ({}) => {
+  const navigation = useNavigation();
   const dispatch = useDispatch();
   const cardUsersState = useSelector((state: RootState) => state.userList);
   const [currentCardSwipeDecision, setCurrentCardSwipeDecision] = useState(
     '' as string,
   );
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
+  const [currentUserObject, setCurrentUserObject] = useState({});
   //const [blockSwiping, setBlockSwiping] = useState(false);
 
   const handleSwipeDecision = (direction: string, user: userType) => {
@@ -33,6 +37,8 @@ const SwiperCards = ({}) => {
 
   useEffect(() => {
     setTimeout(() => {
+      console.log(currentCardIndex);
+      console.log(cardUsersState.users[currentCardIndex]);
       return setCurrentCardSwipeDecision('');
     }, 500);
   }, [currentCardSwipeDecision]);
@@ -51,7 +57,7 @@ const SwiperCards = ({}) => {
 
   return (
     // eslint-disable-next-line react-native/no-inline-styles
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+    <View style={styles.cardSwiperContainer}>
       {/* Like text */}
       <View style={styles.swipeDecisionTextContainer}>
         {currentCardSwipeDecision === 'left' && (
@@ -96,9 +102,11 @@ const SwiperCards = ({}) => {
             <Card
               onSwipedRight={() => {
                 handleSwipeDecision('right', item);
+                setCurrentUserObject(item);
               }}
               onSwipedLeft={() => {
                 handleSwipeDecision('left', item);
+                setCurrentUserObject(item);
               }}
               key={key}
               style={[styles.card, styles.card1]}>
@@ -124,12 +132,22 @@ const SwiperCards = ({}) => {
           direction={'left'}
           setCurrentCardSwipeDecision={setCurrentCardSwipeDecision}
         />
-        {/*<TouchableOpacity*/}
-        {/*  onPress={() => {*/}
-        {/*    setCurrentCardIndex(0);*/}
-        {/*  }}>*/}
-        {/*  <Text>Return</Text>*/}
-        {/*</TouchableOpacity>*/}
+        <TouchableOpacity
+          onPress={() => {
+            //setCurrentCardIndex(0);
+            // @ts-ignore
+            navigation.navigate('Profile', {
+              user: cardUsersState.users[currentCardIndex],
+            });
+          }}>
+          <View style={styles.profileButton}>
+            <MaterialCommunityIcons
+              name="account"
+              color={'#ffffff'}
+              size={24}
+            />
+          </View>
+        </TouchableOpacity>
 
         <SwipeArrowButton
           color={'#01df8a'}

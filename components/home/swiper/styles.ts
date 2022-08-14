@@ -39,6 +39,12 @@ const styles = StyleSheet.create({
   rotateLeft: {
     transform: [{rotate: '-15deg'}],
   },
+
+  cardSwiperContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   swipeDecisionTextContainer: {
     position: 'absolute',
     top: 150,
@@ -194,6 +200,16 @@ const styles = StyleSheet.create({
     justifyContent: 'space-evenly',
     alignItems: 'center',
   },
+
+  profileButton: {
+    paddingVertical: 24,
+    paddingHorizontal: 24,
+    backgroundColor: '#fd267d',
+    borderRadius: 100,
+    borderWidth: 1,
+    borderColor: 'transparent',
+  },
+
   actionIcon: {
     borderRadius: 100,
     borderWidth: 2,
