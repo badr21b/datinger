@@ -8,7 +8,10 @@ const ProfileScreen = ({route}) => {
   const navigation = useNavigation();
 
   const [user, setUser] = useState({
-    username: '',
+    username: route.params.user.username,
+    age: 28,
+    city: 'Moscow',
+    country: 'Russia',
   });
 
   //const getUserProfile = () => {};
@@ -20,22 +23,43 @@ const ProfileScreen = ({route}) => {
     navigation.setOptions({
       title: route.params.user.username,
     });
+
+    setUser({
+      username: route.params.user.username,
+      age: 28,
+      city: 'Moscow',
+      country: 'Russia',
+    });
   }, [navigation, route.params.user]);
 
   return (
-    <View>
+    <View style={styles.profileContainer}>
       <View style={styles.pictureContainer}>
         <Image
           style={styles.picture}
           source={{
             uri: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mzl8fHByb2ZpbGV8ZW58MHx8MHx8&w=1000&q=80',
-            // uri: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZXxlbnwwfHwwfHw%3D&w=1000&q=80',
           }}
         />
       </View>
 
-      <View>
-        <Text>{user.username}</Text>
+      <View style={styles.profileMainInfo}>
+        <Text
+          style={[
+            styles.textBold,
+            styles.fullWidthContainer,
+            styles.blackText,
+          ]}>
+          {user.username}
+        </Text>
+        <Text
+          style={[
+            styles.texNormal,
+            styles.fullWidthContainer,
+            styles.grayText,
+          ]}>
+          {user.age} - {user.city}, {user.country}
+        </Text>
       </View>
     </View>
   );
