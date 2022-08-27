@@ -25,6 +25,10 @@ const UserListItem = ({user, screenType}) => {
     handleRedirectScreen();
   }, [screenType]);
 
+  // useEffect(() => {
+  //   console.log(user)
+  // }, [user]);
+
   return (
     <View style={styles.listItemContainer}>
       <View style={styles.pictureContainer}>

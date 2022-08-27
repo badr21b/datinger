@@ -13,8 +13,11 @@ const SwipeArrowButton = ({direction, color, setCurrentCardSwipeDecision}) => {
         direction === 'right' ? styles.greenColor : styles.redColor,
       ]}
       onPress={() => {
-        // @ts-ignore
-        this.swiper.swipeRight();
+        direction === 'right'
+          ? // @ts-ignore
+            this.swiper.swipeRight()
+          : // @ts-ignore
+            this.swiper.swipeLeft();
         setCurrentCardSwipeDecision(direction);
       }}>
       <MaterialCommunityIcons
