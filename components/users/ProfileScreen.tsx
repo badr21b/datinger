@@ -1,9 +1,18 @@
-import {Image, SafeAreaView, ScrollView, Text, View} from 'react-native';
+import {
+  Alert,
+  Image,
+  SafeAreaView,
+  ScrollView,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import styles from './ProfileScreenStyles';
 import colors from '../genericComponents/styles/genericVariables';
 import {useNavigation} from '@react-navigation/native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import Lottie from 'lottie-react-native';
 
 // @ts-ignore
 const ProfileScreen = ({route}) => {
@@ -16,6 +25,9 @@ const ProfileScreen = ({route}) => {
     city: route.params.user.profile.city,
     country: route.params.user.profile.country,
     matching: route.params.user.interaction.matching,
+    isLiked: route.params.user.interaction.isLiked,
+    isDisliked: route.params.user.interaction.isDisliked,
+    isMatched: route.params.user.interaction.isMatched,
   });
 
   //const getUserProfile = () => {};
@@ -35,8 +47,51 @@ const ProfileScreen = ({route}) => {
       city: route.params.user.profile.city,
       country: route.params.user.profile.country,
       matching: route.params.user.interaction.matching,
+      isLiked: route.params.user.interaction.isLiked,
+      isDisliked: route.params.user.interaction.isDisliked,
+      isMatched: route.params.user.interaction.isMatched,
     });
   }, [navigation, route.params.user]);
+
+  const handleDislikeUser = () => {
+    console.log('dislike this user');
+    console.log(user);
+    if (!user.isDisliked) {
+      setUser({
+        ...user,
+        isDisliked: true,
+      });
+    }
+  };
+
+  const handleLikeUser = () => {
+    console.log('Like this user');
+    console.log(user);
+    if (!user.isLiked) {
+      setUser({
+        ...user,
+        isLiked: true,
+      });
+    } else {
+      Alert.alert(
+        `${user.username} is liked! 🥰`,
+        `You have already liked ${user.username}.
+           💘 wait her until she will like you to be able to chat! 💬`,
+        [
+          // {
+          //   text: 'Cancel',
+          //   onPress: () => console.log('Cancel Pressed'),
+          //   style: 'cancel',
+          // },
+          {text: 'OK', onPress: () => console.log('OK Pressed')},
+        ],
+      );
+    }
+  };
+
+  useEffect(() => {
+    console.log(user.isLiked);
+  }, [user]);
 
   return (
     <>
@@ -49,35 +104,74 @@ const ProfileScreen = ({route}) => {
                 uri: user.profilePicture,
               }}
             />
-            <View style={styles.buttonsHolder}>
-              <View style={[styles.matchingHolder, styles.closeButton]}>
-                <MaterialCommunityIcons
-                  name="close"
-                  color={'#ffffff'}
-                  size={24}
-                />
+
+            {user.isDisliked && (
+              <View style={styles.returnToSwiperButton}>
+                <TouchableOpacity
+                  onPress={() => {
+                    // @ts-ignore
+                    navigation.navigate('Home');
+                  }}>
+                  <Lottie
+                    source={require('../../public/assets/animations/lotties/find-more-match-2.json')}
+                    autoPlay
+                    loop
+                    style={{width: 200}}
+                  />
+                  <Text style={styles.returnToSwiperText}>
+                    No problem your match is waiting you, click here to reach
+                    her
+                  </Text>
+                </TouchableOpacity>
               </View>
+            )}
+
+            <View style={styles.buttonsHolder}>
+              <TouchableOpacity
+                onPress={() => {
+                  handleDislikeUser();
+                }}>
+                <View style={[styles.matchingHolder, styles.closeButton]}>
+                  <MaterialCommunityIcons
+                    name={!user.isDisliked ? 'close' : 'heart-broken'}
+                    color={'#ffffff'}
+                    size={24}
+                  />
+                </View>
+              </TouchableOpacity>
               <View style={[styles.matchingHolder, styles.matchingButton]}>
                 <Text style={styles.matchingText}>{user.matching}%</Text>
               </View>
 
-              {user.matching ? (
-                <View style={[styles.matchingHolder, styles.chatButton]}>
-                  <MaterialCommunityIcons
-                    name="chat"
-                    color={'#ffffff'}
-                    size={24}
-                  />
-                </View>
-              ) : (
-                <View style={[styles.matchingHolder, styles.likeButton]}>
-                  <MaterialCommunityIcons
-                    name="heart"
-                    color={'#ffffff'}
-                    size={24}
-                  />
-                </View>
-              )}
+              {!user.isDisliked &&
+                (user.isMatched ? (
+                  <TouchableOpacity
+                    onPress={() => {
+                      // @ts-ignore
+                      navigation.navigate('Conversation', {user: user});
+                    }}>
+                    <View style={[styles.matchingHolder, styles.chatButton]}>
+                      <MaterialCommunityIcons
+                        name="chat"
+                        color={'#ffffff'}
+                        size={24}
+                      />
+                    </View>
+                  </TouchableOpacity>
+                ) : (
+                  <TouchableOpacity
+                    onPress={() => {
+                      handleLikeUser();
+                    }}>
+                    <View style={[styles.matchingHolder, styles.likeButton]}>
+                      <MaterialCommunityIcons
+                        name="heart"
+                        color={user.isLiked ? '#b9ffbe' : '#ffffff'}
+                        size={24}
+                      />
+                    </View>
+                  </TouchableOpacity>
+                ))}
             </View>
           </View>
 

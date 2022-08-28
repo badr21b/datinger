@@ -6,6 +6,26 @@ const styles = StyleSheet.create({
     width: undefined,
   },
 
+  returnToSwiperButton: {
+    position: 'absolute', // child
+    top: 0, // position where you want
+    left: 0,
+    width: '100%',
+    paddingVertical: 12,
+    justifyContent: 'center',
+    alignContent: 'center',
+    flexDirection: 'row',
+    backgroundColor: '#00000073',
+    height: '100%',
+  },
+  returnToSwiperText: {
+    flex: 0.4,
+    width: 200,
+    color: '#ffffff',
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+
   buttonsHolder: {
     position: 'absolute', // child
     bottom: 0, // position where you want
@@ -28,7 +48,7 @@ const styles = StyleSheet.create({
   },
   chatButton: {
     backgroundColor: 'rgba(117,253,38,0.2)',
-    borderColor: '#de0179',
+    borderColor: '#b9ffbe',
     borderWidth: 1,
   },
   matchingButton: {

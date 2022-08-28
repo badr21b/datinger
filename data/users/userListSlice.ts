@@ -16,6 +16,8 @@ type userProfile = {
 };
 type userInteraction = {
   isLiked: boolean;
+  isDisliked: boolean;
+  isMatched: boolean;
   swipeDirection: string;
   isBlocked: boolean;
   matching: number;
@@ -46,7 +48,9 @@ const initialState: userListState = {
         country: 'Russia',
       },
       interaction: {
-        isLiked: false,
+        isLiked: true,
+        isDisliked: false,
+        isMatched: true,
         swipeDirection: '',
         isBlocked: false,
         matching: 91,
@@ -67,6 +71,8 @@ const initialState: userListState = {
       },
       interaction: {
         isLiked: false,
+        isDisliked: false,
+        isMatched: false,
         swipeDirection: '',
         isBlocked: false,
         matching: 95,
@@ -87,6 +93,8 @@ const initialState: userListState = {
       },
       interaction: {
         isLiked: false,
+        isDisliked: false,
+        isMatched: false,
         swipeDirection: '',
         isBlocked: false,
         matching: 91,
