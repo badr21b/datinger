@@ -52,6 +52,12 @@ const SwiperCards = ({}) => {
     //setBlockSwiping(true);
     return <NoCards />;
   };
+  const handleCardIndex = () => {
+      setCurrentCardIndex(currentCardIndex+1)
+      setTimeout(() => {
+          console.log(currentCardIndex)
+      },5000)
+  }
 
   return (
     // eslint-disable-next-line react-native/no-inline-styles
@@ -99,6 +105,7 @@ const SwiperCards = ({}) => {
             // @ts-ignore
             <Card
               onSwipedRight={() => {
+                handleCardIndex()
                 handleSwipeDecision('right', item);
                 setCurrentUserObject(item);
               }}

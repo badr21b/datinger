@@ -26,6 +26,11 @@ const styles = StyleSheet.create({
     borderColor: '#b9ffbe',
     borderWidth: 1,
   },
+  chatButton: {
+    backgroundColor: 'rgba(117,253,38,0.2)',
+    borderColor: '#de0179',
+    borderWidth: 1,
+  },
   matchingButton: {
     backgroundColor: '#fd267d',
   },

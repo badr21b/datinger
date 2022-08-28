@@ -18,7 +18,7 @@ const LikesListScreen = ({navigation}) => {
       setShowLoader(false);
       // @ts-ignore
       return dispatch(getTodoAsync());
-    }, 1500);
+    }, 500);
   }, []);
 
   return (

@@ -60,9 +60,18 @@ const ProfileScreen = ({route}) => {
               <View style={[styles.matchingHolder, styles.matchingButton]}>
                 <Text style={styles.matchingText}>{user.matching}%</Text>
               </View>
+
               <View style={[styles.matchingHolder, styles.likeButton]}>
                 <MaterialCommunityIcons
                   name="heart"
+                  color={'#ffffff'}
+                  size={24}
+                />
+              </View>
+
+              <View style={[styles.matchingHolder, styles.chatButton]}>
+                <MaterialCommunityIcons
+                  name="chat"
                   color={'#ffffff'}
                   size={24}
                 />
