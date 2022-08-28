@@ -71,6 +71,7 @@ const styles = StyleSheet.create({
     alignContent: 'center',
     borderBottomWidth: 1,
     borderColor: '#e0e0e0',
+    backgroundColor: '#ffffff',
   },
 
   profileStatusContainer: {
@@ -79,20 +80,27 @@ const styles = StyleSheet.create({
     paddingVertical: 24,
     paddingHorizontal: 12,
     alignContent: 'center',
+    backgroundColor: '#ffffff',
+  },
+  textIconMargin: {
+    marginLeft: 9,
   },
   iconTextHolder: {
     flex: 1,
     width: undefined,
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     alignContent: 'center',
-    marginRight: 6,
-    paddingVertical: 3,
+    //marginRight: 6,
+    //paddingVertical: 3,
+    flexDirection: 'row',
   },
 
   titleParagraphContainer: {
     paddingVertical: 12,
     paddingHorizontal: 12,
-    backgroundColor: '#e7e7e7',
+    backgroundColor: '#fff',
+    borderBottomWidth: 1,
+    borderColor: '#e0e0e0',
   },
   paragraphText: {
     fontSize: 14,

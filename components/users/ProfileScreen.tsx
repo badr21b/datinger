@@ -1,6 +1,7 @@
 import {Image, SafeAreaView, ScrollView, Text, View} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import styles from './ProfileScreenStyles';
+import colors from '../genericComponents/styles/genericVariables';
 import {useNavigation} from '@react-navigation/native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
@@ -89,27 +90,32 @@ const ProfileScreen = ({route}) => {
           </View>
 
           <View style={styles.profileStatusContainer}>
-            <Text style={styles.iconTextHolder}>
+            <View style={styles.iconTextHolder}>
               <MaterialCommunityIcons
                 name="gender-male-female"
                 color={'#e91e63'}
                 size={24}
               />
-              Woman | single
-            </Text>
-            <Text style={styles.iconTextHolder}>
-              <MaterialCommunityIcons name="school" color={'#e91e63'} size={24} />
-              College
-            </Text>
-            <Text style={styles.iconTextHolder}>
+              <Text style={styles.textIconMargin}>Woman | single</Text>
+            </View>
+            <View style={styles.iconTextHolder}>
+              <MaterialCommunityIcons
+                name="school"
+                color={'#e91e63'}
+                size={24}
+              />
+              <Text style={styles.textIconMargin}>College</Text>
+
+            </View>
+            <View style={styles.iconTextHolder}>
               <MaterialCommunityIcons name="eye" color={'#e91e63'} size={24} />
-              looking for Long term
-            </Text>
+              <Text style={styles.textIconMargin}> looking for Long term</Text>
+            </View>
           </View>
 
           <View>
             <View style={styles.titleParagraphContainer}>
-              <Text style={[styles.textBold, styles.blackText, styles.centeredText]}>
+              <Text style={[styles.textBold, colors.pink, styles.centeredText]}>
                 About myself
               </Text>
               <Text style={[styles.paragraphText, styles.centeredText]}>
@@ -119,7 +125,7 @@ const ProfileScreen = ({route}) => {
             </View>
 
             <View style={styles.titleParagraphContainer}>
-              <Text style={[styles.textBold, styles.blackText, styles.centeredText]}>
+              <Text style={[styles.textBold, colors.pink, styles.centeredText]}>
                 My Hobbies
               </Text>
               <Text style={[styles.paragraphText, styles.centeredText]}>
@@ -129,7 +135,7 @@ const ProfileScreen = ({route}) => {
             </View>
 
             <View style={styles.titleParagraphContainer}>
-              <Text style={[styles.textBold, styles.blackText, styles.centeredText]}>
+              <Text style={[styles.textBold, colors.pink, styles.centeredText]}>
                 My positive points
               </Text>
               <Text style={[styles.paragraphText, styles.centeredText]}>
@@ -146,7 +152,6 @@ const ProfileScreen = ({route}) => {
       {/*  <Text>zd</Text>*/}
       {/*</View>*/}
     </>
-
   );
 };
 

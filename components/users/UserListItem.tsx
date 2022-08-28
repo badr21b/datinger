@@ -35,6 +35,10 @@ const UserListItem = ({user, screenType}) => {
         <TouchableOpacity
           onPress={() => {
             // @ts-ignore
+            navigation.navigate('Profile', {
+              user: user
+            });
+            // @ts-ignore
             navigation.navigate(redirectScreen, {user: user});
           }}>
           <Image

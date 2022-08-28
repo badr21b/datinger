@@ -133,6 +133,7 @@ const SwiperCards = ({}) => {
         <TouchableOpacity
           onPress={() => {
             //setCurrentCardIndex(0);
+            console.log(currentCardIndex);
             // @ts-ignore
             navigation.navigate('Profile', {
               user: cardUsersState.users[currentCardIndex],
