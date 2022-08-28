@@ -38,7 +38,7 @@ const SwiperCards = ({}) => {
   useEffect(() => {
     setTimeout(() => {
       return setCurrentCardSwipeDecision('');
-    }, 500);
+    }, 100);
   }, [currentCardSwipeDecision]);
 
   const handleSwipe = (event: any) => {
