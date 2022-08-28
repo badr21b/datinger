@@ -61,21 +61,23 @@ const ProfileScreen = ({route}) => {
                 <Text style={styles.matchingText}>{user.matching}%</Text>
               </View>
 
-              <View style={[styles.matchingHolder, styles.likeButton]}>
-                <MaterialCommunityIcons
-                  name="heart"
-                  color={'#ffffff'}
-                  size={24}
-                />
-              </View>
-
-              <View style={[styles.matchingHolder, styles.chatButton]}>
-                <MaterialCommunityIcons
-                  name="chat"
-                  color={'#ffffff'}
-                  size={24}
-                />
-              </View>
+              {user.matching ? (
+                <View style={[styles.matchingHolder, styles.chatButton]}>
+                  <MaterialCommunityIcons
+                    name="chat"
+                    color={'#ffffff'}
+                    size={24}
+                  />
+                </View>
+              ) : (
+                <View style={[styles.matchingHolder, styles.likeButton]}>
+                  <MaterialCommunityIcons
+                    name="heart"
+                    color={'#ffffff'}
+                    size={24}
+                  />
+                </View>
+              )}
             </View>
           </View>
 
@@ -114,7 +116,6 @@ const ProfileScreen = ({route}) => {
                 size={24}
               />
               <Text style={styles.textIconMargin}>College</Text>
-
             </View>
             <View style={styles.iconTextHolder}>
               <MaterialCommunityIcons name="eye" color={'#e91e63'} size={24} />
