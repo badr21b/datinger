@@ -29,6 +29,7 @@ type userConnectionStatus = {
 export type userListState = {
   data: any;
   users: User[];
+  users_2: User[];
   loading: boolean;
   error: boolean;
 };
@@ -105,6 +106,32 @@ const initialState: userListState = {
       },
     },
   ],
+
+  users_2: [
+    {
+      profile: {
+        name: 'Second list profile',
+        age: 0,
+        picture:
+          'https://www.befunky.com/images/wp/wp-2021-01-linkedin-profile-picture-focus-face.jpg?auto=avif,webp&format=jpg&width=944',
+        city: 'Istanbul',
+        country: 'Turkey',
+      },
+      interaction: {
+        isLiked: false,
+        isDisliked: false,
+        isMatched: false,
+        swipeDirection: '',
+        isBlocked: false,
+        matching: 95,
+      },
+      connectionStatus: {
+        onlineStatus: 'online',
+        lastOnlineTimeOut: '',
+      },
+    },
+  ],
+
   loading: false,
   error: false,
 };
@@ -120,6 +147,10 @@ const userListSlice = createSlice({
           user.interaction.swipeDirection = action.payload.decision;
         }
       });
+    },
+
+    refreshList: (state, action) => {
+      state.users = state.users_2;
     },
 
     getTodo: (state, action) => {
@@ -145,5 +176,5 @@ export const getTodoAsync =
   };
 
 // Exports
-export const {swipeUser, getTodo} = userListSlice.actions;
+export const {swipeUser, getTodo, refreshList} = userListSlice.actions;
 export default userListSlice.reducer;

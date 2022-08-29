@@ -20,8 +20,12 @@ const SwiperCards = ({}) => {
     '' as string,
   );
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
-  const [currentUserObject, setCurrentUserObject] = useState({});
+  // const [currentUserObject, setCurrentUserObject] = useState({});
   //const [blockSwiping, setBlockSwiping] = useState(false);
+
+  const [usersList, setUsersList] = useState(cardUsersState.users);
+  const [showButtons, setShowButtons] = useState(true);
+  const [loop, setLoop] = useState(true);
 
   const handleSwipeDecision = (direction: string, user: userType) => {
     dispatch(
@@ -32,8 +36,17 @@ const SwiperCards = ({}) => {
     );
   };
   const handleRefreshList = () => {
-    setCurrentCardIndex(0);
+    // setShowButtons(false);
+    // setUsersList(cardUsersState.users)
+    // setLoop(true)
   };
+
+  useEffect(() => {
+    console.log('new list ');
+    console.log(cardUsersState.users);
+    setUsersList(cardUsersState.users);
+    // setCurrentCardIndex(currentCardIndex + 1 )
+  }, [cardUsersState]);
 
   useEffect(() => {
     setTimeout(() => {
@@ -50,14 +63,16 @@ const SwiperCards = ({}) => {
   };
   const handleNoMoreCards = () => {
     //setBlockSwiping(true);
-    return <NoCards />;
+    // setShowButtons(false);
+    setCurrentCardIndex(0);
+    return <NoCards handleRefreshList={handleRefreshList} />;
   };
   const handleCardIndex = () => {
-      setCurrentCardIndex(currentCardIndex+1)
-      setTimeout(() => {
-          console.log(currentCardIndex)
-      },5000)
-  }
+    // setCurrentCardIndex(currentCardIndex + 1);
+    // setTimeout(() => {
+    //   console.log(currentCardIndex);
+    // }, 5000);
+  };
 
   return (
     // eslint-disable-next-line react-native/no-inline-styles
@@ -99,19 +114,23 @@ const SwiperCards = ({}) => {
         onSwipe={handleSwipe}
         renderNoMoreCards={handleNoMoreCards}
         onSwipedAll={handleRefreshList}
-        initialIndex={currentCardIndex}>
-        {cardUsersState.users.map((item, key) => {
+        initialIndex={currentCardIndex}
+        loop={loop}
+        onSwiped={index => {
+          setCurrentCardIndex(index + 1);
+        }}>
+        {usersList.map((item, key) => {
           return (
             // @ts-ignore
             <Card
               onSwipedRight={() => {
-                handleCardIndex()
+                handleCardIndex();
                 handleSwipeDecision('right', item);
-                setCurrentUserObject(item);
+                // setCurrentUserObject(item);
               }}
               onSwipedLeft={() => {
                 handleSwipeDecision('left', item);
-                setCurrentUserObject(item);
+                // setCurrentUserObject(item);
               }}
               key={key}
               style={[styles.card, styles.card1]}>
@@ -131,36 +150,39 @@ const SwiperCards = ({}) => {
         })}
       </CardStack>
 
-      <View style={styles.actionButtonsContainer}>
-        <SwipeArrowButton
-          color={'#e91e63'}
-          direction={'left'}
-          setCurrentCardSwipeDecision={setCurrentCardSwipeDecision}
-        />
-        <TouchableOpacity
-          onPress={() => {
-            //setCurrentCardIndex(0);
-            console.log(currentCardIndex);
-            // @ts-ignore
-            navigation.navigate('Profile', {
-              user: cardUsersState.users[currentCardIndex],
-            });
-          }}>
-          <View style={styles.profileButton}>
-            <MaterialCommunityIcons
-              name="account"
-              color={'#ffffff'}
-              size={24}
+      {(showButtons) && (
+          <View style={styles.actionButtonsContainer}>
+            <SwipeArrowButton
+                color={'#e91e63'}
+                direction={'left'}
+                setCurrentCardSwipeDecision={setCurrentCardSwipeDecision}
+            />
+            <TouchableOpacity
+                onPress={() => {
+                  //setCurrentCardIndex(0);
+                  console.log('current index' + currentCardIndex);
+                  // @ts-ignore
+                  navigation.navigate('Profile', {
+                    user: cardUsersState.users[currentCardIndex],
+                  });
+                }}>
+              <View style={styles.profileButton}>
+                <MaterialCommunityIcons
+                    name="account"
+                    color={'#ffffff'}
+                    size={24}
+                />
+              </View>
+            </TouchableOpacity>
+
+            <SwipeArrowButton
+                color={'#01df8a'}
+                direction={'right'}
+                setCurrentCardSwipeDecision={setCurrentCardSwipeDecision}
             />
           </View>
-        </TouchableOpacity>
+      )}
 
-        <SwipeArrowButton
-          color={'#01df8a'}
-          direction={'right'}
-          setCurrentCardSwipeDecision={setCurrentCardSwipeDecision}
-        />
-      </View>
     </View>
   );
 };
