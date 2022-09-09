@@ -12,6 +12,14 @@ const styles = StyleSheet.create({
     paddingVertical: 9,
   },
 
+  buttonStyle: {
+    alignItems: 'center',
+    backgroundColor: '#DDDDDD',
+    padding: 10,
+    width: '100%',
+    marginTop: 16,
+  },
+
   picture: {
     width: 110,
     height: 110,

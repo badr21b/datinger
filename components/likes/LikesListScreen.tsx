@@ -1,4 +1,11 @@
-import {Button, FlatList, Image, Text, View} from 'react-native';
+import {
+  Button,
+  FlatList,
+  Image,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import React, {useEffect, useState} from 'react';
 
 import {getTodoAsync} from '../../data/users/userListSlice';
@@ -6,6 +13,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {RootState} from '../../data/store';
 import UserListItem from '../users/UserListItem';
 import styles from './styles';
+import axios from 'axios';
 
 // @ts-ignore
 const LikesListScreen = ({navigation}) => {
@@ -21,6 +29,25 @@ const LikesListScreen = ({navigation}) => {
     }, 500);
   }, []);
 
+  const getDataUsingAsyncAwaitGetCall = async (data = {}) => {
+    try {
+      const response = await axios('http://51.250.19.232:7187/api/users', {
+        method: 'get',
+        headers: {
+          'Content-type': 'Application/json',
+          Accept: 'Application/json',
+          //Authorization: '',
+        },
+        data: data ? data : null,
+      });
+      console.log(response);
+    } catch (error) {
+      // handle error
+      // @ts-ignore
+      console.log(error.message);
+    }
+  };
+
   return (
     <View style={styles.container}>
       {/*<View style={styles.stackNavBar}>*/}
@@ -29,6 +56,11 @@ const LikesListScreen = ({navigation}) => {
       {/*    onPress={() => navigation.navigate('Home')}*/}
       {/*  />*/}
       {/*</View>*/}
+      <TouchableOpacity
+        style={styles.buttonStyle}
+        onPress={getDataUsingAsyncAwaitGetCall}>
+        <Text>Get Data Using Async Await GET</Text>
+      </TouchableOpacity>
       {showLoader ? (
         <View>
           <Image
@@ -43,7 +75,7 @@ const LikesListScreen = ({navigation}) => {
             return index.toString();
           }}
           renderItem={({item}) => {
-            return <UserListItem user={item}  screenType={'likes'} />;
+            return <UserListItem user={item} screenType={'likes'} />;
           }}
         />
       ) : (

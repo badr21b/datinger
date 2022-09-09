@@ -160,19 +160,60 @@ const userListSlice = createSlice({
   },
 });
 
-const API_URL = 'https://jsonplaceholder.typicode.com/users';
+//const API_URL = 'https://jsonplaceholder.typicode.com/users';
+const API_URL = 'https://d.dnl.su/api/users';
+//const API_URL = 'https://www.pembepanjur.com/api/v9/languages/list';
+
+const headers = {
+  //'Content-Type': 'application/json',
+  //Authorization: '',
+  'Content-Type': 'application/x-www-form-urlencoded',
+  Accept: 'application/json',
+};
+
 // const API_URL = '/db/users.json';
 export const getTodoAsync =
   (data: any) => async (dispatch: (arg0: any) => void) => {
     try {
-      const response = await axios.get(`${API_URL}/`);
-      console.log(response.data);
-      // const response = await axios.get(`${API_URL}/${data}`);
-      dispatch(getTodo(response.data));
+      const addReminderRes = await axios({
+        url: `${API_URL}/`,
+        //data: formData,
+        method: 'GET',
+      });
+
+      console.log('addReminderRes : ', addReminderRes)
     } catch (err) {
-      // @ts-ignore
-      throw new Error(err);
+      console.log(err)
     }
+
+
+    // try {
+    //   const response = await axios.get(`${API_URL}/`, {headers});
+    //   console.log(response);
+    //   // const response = await axios.get(`${API_URL}/${data}`);
+    //   dispatch(getTodo(response.data));
+    // } catch (error) {
+    //   console.log(error);
+    //
+    //   if (error.response) {
+    //     // The request was made and the server responded with a status code
+    //     // that falls out of the range of 2xx
+    //     console.log(error.response.data);
+    //     console.log(error.response.status);
+    //     console.log(error.response.headers);
+    //   } else if (error.request) {
+    //     // The request was made but no response was received
+    //     // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+    //     // http.ClientRequest in node.js
+    //     console.log(error.request);
+    //   } else {
+    //     // Something happened in setting up the request that triggered an Error
+    //     console.log('Error', error.message);
+    //   }
+    //   console.log(error.config);
+    //   // @ts-ignore
+    //   //throw new Error(err);
+    // }
   };
 
 // Exports
