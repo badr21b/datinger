@@ -1,0 +1,65 @@
+{
+  "expo": {
+    "name": "Budhi",
+    "slug": "budhi",
+    "version": "1.0.0",
+    "scheme": "budhi",
+    "platforms": ["ios", "android"],
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "cover",
+      "backgroundColor": "#10182b"
+    },
+    "backgroundColor": "#10182b",
+    "userInterfaceStyle": "dark",
+    "androidStatusBar": {
+      "backgroundColor": "#10182b",
+      "barStyle": "light-content",
+      "translucent": true
+    },
+    "entryPoint": "./AppEntry.js",
+    "debuggerHost": "localhost",
+    "plugins": [],
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "ios": {
+      "bundleIdentifier": "com.samelinkstarter.app",
+      "infoPlist": {
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "This app needs your current location to show your distance to our park during the usage of the app at the interactive map screen. The App automatically collect detailed location and navigation information in the form of GPS signals from the mobile device on which you have installed and activated the App (“App Location Information”). When you open, use or interact with the Application Services, we use the Application Location Information (e.g., latitude and longitude) to customize the Application Services experience based on your current location. We also use your Application Location Information to provide you with certain Application Services, including to send you notifications of other relevant information. If the “Background Locator” feature is enabled, the Applications may, from time to time, tell us the location of your device, even if you do not interact directly with the Application. We may use various technologies to determine your App Location Information, such as the location services of the operating system in question, GPS, Bluetooth, i-Beacon, RFID and data from the sensor of your devices, in addition to nearby Wi-Fi hotspots and cell towers, and other technologies to determine the approximate location of your mobile devices.",
+        "NSLocationWhenInUseUsageDescription": "Cette application utilise votre localisation pour vous fourinir des services personnalisées et des offres adaptées à vos besoins. Votre localisation n'est partagée avec aucun tiers et n'est utilisée que lorsque l'application est active.",
+        "NSLocationAlwaysUsageDescription": "Cette application utilise votre localisation en permanence pour vous offrir une meilleure expérience utilisateur et des fonctionnalités avancées. Votre localisation n'est partagée avec aucun tiers et vous pouvez la désactiver à tout moment dans les réglages de l'application.",
+        "UIBackgroundModes": ["fetch"],
+        "CFBundleIconName": "icon.png"
+      },
+      "config": {
+        "usesNonExemptEncryption": false
+      },
+      "buildNumber": "1"
+    },
+    "android": {
+      "package": "com.budhi.app",
+      "versionCode": 1,
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#FFFFFF"
+      },
+      "config": {},
+      "permissions": [
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.ACCESS_FINE_LOCATION",
+        "android.permission.FOREGROUND_SERVICE",
+        "android.permission.ACCESS_BACKGROUND_LOCATION",
+        "android.permission.WRITE_EXTERNAL_STORAGE"
+      ]
+    },
+    "packagerOpts": {
+      "sourceExts": ["cjs"]
+    },
+    "owner": "samelink.sb",
+    "extra": {
+      "eas": {
+        "projectId": "f745c62a-49d4-456c-9d6a-2281e4866cba"
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "expo": {
+    "extra": {
+      "eas": {
+        "projectId": "1dac7d93-a1fa-4d03-a2f3-803010aa9758"
+      }
+    },
+    "android": {
+      "package": "com.badr21bb.solitowithtailwind"
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "horse_rider_feelings": [
+    {
+      "id": 1,
+      "feeling": "Trust",
+      "description": "The horse and rider feel a deep sense of reliance on each other, knowing that they can count on one another in any situation.",
+      "imageUrl": "https://thumbs.dreamstime.com/b/cowgirl-riding-horseback-running-illustration-vector-isolated-white-background-line-art-233365662.jpg"
+    },
+    {
+      "id": 2,
+      "feeling": "Fear",
+      "description": "A moment of hesitation or anxiety when facing an unfamiliar challenge, where both the horse and rider need to overcome their doubts.",
+      "imageUrl": "https://st3.depositphotos.com/1000708/19466/v/1600/depositphotos_194661596-stock-illustration-continuous-one-line-drawing-horse.jpg"
+    },
+    {
+      "id": 3,
+      "feeling": "Excitement",
+      "description": "A shared feeling of energy and anticipation, often experienced during a gallop, jump, or a new adventure together.",
+      "imageUrl": "https://media.istockphoto.com/id/1301078819/vector/horseback-rider.jpg?s=612x612&w=0&k=20&c=TLEIBP7n6aHgK7IR3tDMSOlG4Y7bc1MmgApllmfOm3I="
+    },
+    {
+      "id": 4,
+      "feeling": "Love",
+      "description": "A deep emotional bond that grows over time, as the horse and rider build a unique connection through shared experiences.",
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCQvdfLvaJH83G_1G0NvQNf_zIcWSkvXGwXjdm_hKUQ1jcebbmMt8SqxIgXE0JoB6lGz0&usqp=CAU"
+    },
+    {
+      "id": 5,
+      "feeling": "Confidence",
+      "description": "The sense of assurance and boldness in their movements, knowing they can accomplish tasks together as a team.",
+      "imageUrl": "https://thumbs.dreamstime.com/b/cowgirl-riding-horseback-running-illustration-vector-isolated-white-background-line-art-233365662.jpg"
+    },
+    {
+      "id": 6,
+      "feeling": "Anxiety",
+      "description": "A nervous tension that can arise when faced with uncertainty, requiring patience and reassurance from both horse and rider.",
+      "imageUrl": "https://st3.depositphotos.com/1000708/19466/v/1600/depositphotos_194661596-stock-illustration-continuous-one-line-drawing-horse.jpg"
+    },
+    {
+      "id": 7,
+      "feeling": "Joy",
+      "description": "Pure happiness and delight, often felt during peaceful rides, playful moments, or achieving a hard-earned goal.",
+      "imageUrl": "https://media.istockphoto.com/id/1301078819/vector/horseback-rider.jpg?s=612x612&w=0&k=20&c=TLEIBP7n6aHgK7IR3tDMSOlG4Y7bc1MmgApllmfOm3I="
+    },
+    {
+      "id": 8,
+      "feeling": "Calm",
+      "description": "A peaceful state where both horse and rider move in harmony, feeling completely at ease with one another.",
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCQvdfLvaJH83G_1G0NvQNf_zIcWSkvXGwXjdm_hKUQ1jcebbmMt8SqxIgXE0JoB6lGz0&usqp=CAU"
+    }
+  ]
+}
